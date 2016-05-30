@@ -30,9 +30,10 @@ $('.menu-item').on( 'click', function() {
 	//Portfolio Modal
 	$('.open-project').on('click', function(){     
 		var projectUrl = $(this).attr("href");
-
+		projectUrl =  'https://ec2-52-34-253-229.us-west-2.compute.amazonaws.com:8000/';
 		var project = '<div class="modal fade" id="project-modal"><div class="inline-menu-container"><a id="modal-close" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></a></div><div class="modal-dialog"><div class="modal-content"></div></div></div>';
 
+		console.log(projectUrl);
 		$(project).modal({
 		  remote: projectUrl + ' #project'
 		})
