@@ -1376,6 +1376,7 @@ ul.info-list li strong {
 
 #post-modal,
 #project-modal {
+  padding-left:0px!important;
   z-index: 99999;
 }
 
