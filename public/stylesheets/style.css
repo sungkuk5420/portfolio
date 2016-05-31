@@ -245,7 +245,7 @@ strong, small {
   height: 100%;
   background: white;
   z-index: 999;
-  transition: .7s .3s transform ease-in-out;
+  transition: .4s .3s transform ease-in-out;
 }
 
 .slide-left {
@@ -260,7 +260,7 @@ strong, small {
   height: 100%;
   background: white;
   z-index: 999;
-  transition: .7s .3s transform ease-in-out;
+  transition: .4s .3s transform ease-in-out;
 }
 
 .slide-right {
@@ -1831,3 +1831,7 @@ ul.info-list li strong {
   }
 }
 
+
+.fa-spin {
+  margin-top: 5px;
+}

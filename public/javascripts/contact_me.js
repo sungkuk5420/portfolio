@@ -24,12 +24,12 @@ jQuery(document).ready(function() {
         }
         return false
     });
-    //$("form#formcontactus input").focus(function() {
-    //    $("form#formcontactus .error-form").remove();
-    //    $("form#formcontactus .success").remove()
-    //});
-    //$("form#formcontactus textarea").focus(function() {
-    //    $("form#formcontactus .error-form").remove();
-    //    $("form#formcontactus .success").remove()
-    //})
-})
+    $("form#formcontactus input").focus(function() {
+        $("form#formcontactus .error-form").remove();
+        $("form#formcontactus .success").remove()
+    });
+    $("form#formcontactus textarea").focus(function() {
+        $("form#formcontactus .error-form").remove();
+        $("form#formcontactus .success").remove()
+    })
+});
