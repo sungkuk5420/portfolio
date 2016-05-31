@@ -1,3 +1,17 @@
+(typeof global == 'undefined' ? window : global).mainUtils = mainUtils = {
+
+	common : {}, //공통
+	constants : {}, //상수
+	value : {}, //변수
+	data : {}, //obj단위의 데이터들
+	net : {}, //통신. ajax
+	draw : {}, //반복적인 그림. ui그릴때
+	func : {}, //함수
+	modal : {}, //modal.
+	view : {},  //view
+	templates : {} //pf불러올때
+};
+
 $(window).load(function() {
     $(".preloader").fadeOut("slow", function(){
       	$(".preloader-left").addClass("slide-left");
@@ -28,15 +42,14 @@ $('.menu-item').on( 'click', function() {
 });
 	
 	//Portfolio Modal
-	$('.open-project').on('click', function(){     
+	$('.open-project').on('click', function(e){
+		e.preventDefault();
 		var projectUrl = $(this).attr("href");
-		projectUrl =  'https://ec2-52-34-253-229.us-west-2.compute.amazonaws.com:8000/';
-		var project = '<div class="modal fade" id="project-modal"><div class="inline-menu-container"><a id="modal-close" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></a></div><div class="modal-dialog"><div class="modal-content"></div></div></div>';
-
-		console.log(projectUrl);
-		$(project).modal({
-		  remote: projectUrl + ' #project'
-		})
+		projectUrl =  'test';
+		$('#project-modal').modal('show').find('.modal-content').load($(this).attr('href'));
+		//$(project).modal({
+		//  remote: projectUrl + ' #project'
+		//})
 		
 		return false;
 	  
@@ -62,56 +75,57 @@ $('.menu-item').on( 'click', function() {
 	  $('.name-block-container').addClass('reverse');
 	  $('.menu-blocks').addClass('hidex');
 	  $('.inline-menu-container').removeClass('hidex');
-	  $('.inline-menu-container').addClass('showx');	  
+	  $('.inline-menu-container').addClass('showx');
     });
 	//On Click Open About/Resume Block
-	$('.about').on( 'click', function() {
+	mainUtils.func.about = function(){
 	  $('.content-blocks').removeClass('showx');
-	  $('.content-blocks').addClass('hidex');	
+	  $('.content-blocks').addClass('hidex');
 	  $('.content-blocks.about').removeClass('hidex');
 	  $('.content-blocks.about').addClass('showx');
 	  $('.menu-item').removeClass('active');
 	  $('.menu-item.about').addClass('active');
-    });	
+    };
 	//On Click Open Portfolio Block
-	$('.portfolio').on( 'click', function() { 
-	  $('.content-blocks').removeClass('showx');	
-	  $('.content-blocks').addClass('hidex');	
+	mainUtils.func.portfolio = function(){
+	  $('.content-blocks').removeClass('showx');
+	  $('.content-blocks').addClass('hidex');
 	  $('.content-blocks.portfolio').removeClass('hidex');
 	  $('.content-blocks.portfolio').addClass('showx');
 	  $('.menu-item').removeClass('active');
 	  $('.menu-item.portfolio').addClass('active');
-    });	
+    };
 	//On Click Open Blog Block
-	$('.blog').on( 'click', function() { 
-	  $('.content-blocks').removeClass('showx');	
-	  $('.content-blocks').addClass('hidex');	
+	mainUtils.func.blog = function(){
+	  $('.content-blocks').removeClass('showx');
+	  $('.content-blocks').addClass('hidex');
 	  $('.content-blocks.blog').removeClass('hidex');
 	  $('.content-blocks.blog').addClass('showx');
 	  $('.menu-item').removeClass('active');
 	  $('.menu-item.blog').addClass('active');
-    });	
+    };
 	//On Click Open Contact Block
-	$('.contact').on( 'click', function() { 
-	  $('.content-blocks').removeClass('showx');	
-	  $('.content-blocks').addClass('hidex');	
+	mainUtils.func.contact = function(){
+	  $('.content-blocks').removeClass('showx');
+	  $('.content-blocks').addClass('hidex');
 	  $('.content-blocks.contact').removeClass('hidex');
 	  $('.content-blocks.contact').addClass('showx');
 	  $('.menu-item').removeClass('active');
 	  $('.menu-item.contact').addClass('active');
-    });
-	
+    };
+
 	//On Click Close Blocks
-	$('#close').on( 'click', function() {
-	  $('.name-block').removeClass('reverse');
-	  $('.name-block-container').removeClass('reverse');
-	  $('.menu-blocks').removeClass('hidex');
-      $('.content-blocks').removeClass('showx');
-	  $('.content-blocks').addClass('hidex');
-	  $('.inline-menu-container').removeClass('showx');
-	  $('.inline-menu-container').addClass('hidex');
-	  $('.menu-item').removeClass('active');	
-    });	
+	mainUtils.func.close = function(){
+		$('.name-block').removeClass('reverse');
+		$('.name-block-container').removeClass('reverse');
+		$('.menu-blocks').removeClass('hidex');
+		$('.content-blocks').removeClass('showx');
+		$('.content-blocks').addClass('hidex');
+		$('.inline-menu-container').removeClass('showx');
+		$('.inline-menu-container').addClass('hidex');
+		$('.menu-item').removeClass('active');
+	};
+
 	
 	
 	//Placeholder
@@ -124,5 +138,3 @@ $('.menu-item').on( 'click', function() {
     });
 	
 	$('input, textarea').placeholder();
-
-      

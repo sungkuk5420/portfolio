@@ -2,18 +2,7 @@
 <html lang="en" class="csstransforms csstransforms3d csstransitions">
   <head>
     <title><%= title %></title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link rel="icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
-    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
-    <link rel='stylesheet' href='/stylesheets/font-awesome-4.6.3/css/font-awesome.min.css' />
-    <link rel='stylesheet' href='/stylesheets/animate.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%include head.ejs%>
   </head>
   <body>
 
@@ -26,11 +15,11 @@
   <div class="inline-menu-container hidex">
 
     <ul class="inline-menu">
-      <li class="about menu-item">이력서</li>
-      <li class="portfolio menu-item">포트폴리오</li>
-      <li class="blog menu-item">블로그</li>
-      <li class="contact menu-item">연락처</li>
-      <li id="close">×</li>
+      <li class="about menu-item" onclick="mainUtils.func.about();">이력서</li>
+      <li class="portfolio menu-item" onclick="mainUtils.func.portfolio();">포트폴리오</li>
+      <li class="blog menu-item" onclick="mainUtils.func.blog();">블로그</li>
+      <li class="contact menu-item" onclick="mainUtils.func.contact();">연락처</li>
+      <li id="close" onclick="mainUtils.func.close();">×</li>
     </ul>
 
   </div>
@@ -44,7 +33,7 @@
           <a class="btn btn-download">이력서 다운로드</a>
           <ul class="social">
             <li><a href="#" onclick="window.open('https://www.facebook.com/sungkuk5420');"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" onclick="test();"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
           </ul>
 
@@ -53,22 +42,22 @@
       <div class="menu-blocks">
         <div class="about-block">
           <div class="about-block-container">
-            <h2 class="about menu-item">이력서</h2>
+            <h2 class="about menu-item" onclick="mainUtils.func.about();">이력서</h2>
           </div>
         </div>
         <div class="portfolio-block">
           <div class="portfolio-block-container">
-            <h2 class="portfolio menu-item">포트폴리오</h2>
+            <h2 class="portfolio menu-item" onclick="mainUtils.func.portfolio();">포트폴리오</h2>
           </div>
         </div>
         <div class="blog-block">
           <div class="blog-block-container">
-            <h2 class="blog menu-item">블로그</h2>
+            <h2 class="blog menu-item" onclick="mainUtils.func.blog();">블로그</h2>
           </div>
         </div>
         <div class="contact-block">
           <div class="contact-block-container">
-            <h2 class="contact menu-item">연락처</h2>
+            <h2 class="contact menu-item" onclick="mainUtils.func.contact();">연락처</h2>
           </div>
         </div>
       </div>
@@ -329,7 +318,7 @@
 
             <div class="row text-center">
               <div class="col-md-12 btn-email">
-                <a class="btn lowercase" >sungkuk5420@gmail.com</a><br>
+                <a class="btn lowercase"href="#" onclick="mainUtils.func.contact();" >sungkuk5420@gmail.com</a><br>
                 <small>I am available for freelance</small>
               </div>
             </div>
@@ -356,7 +345,7 @@
                 </ul>
                 <div id="projects">
                   <div class="project graphic apps">
-                    <a class="open-project" href="project-1.html">
+                    <a class="open-project" href="/luxuryWatch">
                       <div class="project-overlay">
                         <div class="vcenter">
                           <div class="centrize">
@@ -369,7 +358,7 @@
                     <img src="images/portfolio/1.jpg" alt="">
                   </div>
                   <div class="project web apps">
-                    <a class="open-project" href="project-2.html">
+                      <a class="open-project" data-toggle="modal" href="/colorfulTees" data-target="#modal">
                       <div class="project-overlay">
                         <div class="vcenter">
                           <div class="centrize">
@@ -382,7 +371,7 @@
                     <img src="images/portfolio/2.jpg" alt="">
                   </div>
                   <div class="project graphic video">
-                    <a class="open-project" href="project-1.html">
+                    <a class="open-project" href="/luxuryWatch">
                       <div class="project-overlay">
                         <div class="vcenter">
                           <div class="centrize">
@@ -395,7 +384,7 @@
                     <img src="images/portfolio/3.jpg" alt="">
                   </div>
                   <div class="project graphic">
-                    <a class="open-project" href="project-1.html">
+                    <a class="open-project" href="/luxuryWatch">
                       <div class="project-overlay">
                         <div class="vcenter">
                           <div class="centrize">
@@ -408,7 +397,7 @@
                     <img src="images/portfolio/4.jpg" alt="">
                   </div>
                   <div class="project web video">
-                    <a class="open-project" href="project-2.html">
+                    <a class="open-project" href="/luxuryWatch">
                       <div class="project-overlay">
                         <div class="vcenter">
                           <div class="centrize">
@@ -421,7 +410,7 @@
                     <img src="images/portfolio/5.jpg" alt="">
                   </div>
                   <div class="project apps web">
-                    <a class="open-project" href="project-1.html">
+                    <a class="open-project" href="/luxuryWatch">
                       <div class="project-overlay">
                         <div class="vcenter">
                           <div class="centrize">
@@ -434,7 +423,7 @@
                     <img src="images/portfolio/6.jpg" alt="">
                   </div>
                   <div class="project video web">
-                    <a class="open-project" href="project-1.html">
+                    <a class="open-project" href="/luxuryWatch">
                       <div class="project-overlay">
                         <div class="vcenter">
                           <div class="centrize">
@@ -453,7 +442,7 @@
             <div class="row text-center">
               <div class="col-md-12">
                 <h4>Interested in working together?</h4>
-                <a class="btn lowercase">hello@james.com</a><br>
+                <a class="btn lowercase" onclick="mainUtils.func.contact();">sungkuk5420@gmail.com</a><br>
               </div>
             </div>
           </div>
@@ -580,7 +569,7 @@
 
         <section class="content">
           <div class="block-content">
-            <h3 class="block-title">Get in touch</h3>
+            <h3 class="block-title">연락처</h3>
             <div class="row">
 
               <div class="col-md-6">
@@ -589,8 +578,8 @@
                     <i class="fa fa-map-marker"></i>
                   </div>
                   <div class="contact-details">
-                    <h5>Address</h5>
-                    <p>234, London Street, EL10 6 BG</p>
+                    <h5>주소</h5>
+                    <p>오사카 쓰루미구 諸口６丁目１５−３３ 803호</p>
                   </div>
                 </div>
                 <div class="contact-content ">
@@ -598,8 +587,8 @@
                     <i class="fa fa-phone"></i>
                   </div>
                   <div class="contact-details">
-                    <h5>Call Us</h5>
-                    <p> +44 - 02920111222</p>
+                    <h5>전화 번호</h5>
+                    <p> +81 - 070-4385-3533</p>
                   </div>
                 </div>
                 <div class="contact-content ">
@@ -607,25 +596,25 @@
                     <i class="fa fa-envelope"></i>
                   </div>
                   <div class="contact-details">
-                    <h5>Enquiries</h5>
-                    <p>hello@james.com</p>
+                    <h5>이메일</h5>
+                    <p>sungkuk5420@gmail.com</p>
                   </div>
                 </div>
 
               </div>
               <div class="col-md-6">
-                <form method="POST" action="php/contact_me.php" id="formcontactus" class="">
+                <form method="POST" action="/mailSend" id="formcontactus" class="">
                   <div class="form-group">
-                    <input name="name" type="text" class="form-control requiretop" placeholder="* Your Name">
+                    <input name="name" type="text" class="form-control requiretop" placeholder="* 당신의 이름">
                   </div>
                   <div class="form-group">
-                    <input name="email" type="email" class="form-control requiretop" placeholder="* Your Email">
+                    <input name="email" type="email" class="form-control requiretop" placeholder="* 당신의 이메일">
                   </div>
                   <div class="form-group">
-                    <textarea rows="6" name="message" class="form-control requiretop" placeholder="* Your Message"></textarea>
+                    <textarea rows="6" name="message" class="form-control requiretop" placeholder="* 메세지"></textarea>
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-dark selected">Send Message</button>
+                    <button type="submit" class="btn btn-dark selected">메세지 전송</button>
                   </div>
                 </form>
               </div>
@@ -639,13 +628,15 @@
 
     </div>
   </section>
-
-  <script type="text/javascript" src="javascripts/jquery-1.12.4.js"></script>
-  <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
-  <script type="text/javascript" src="javascripts/jquery.isotope.min.js"></script>
-  <script type="text/javascript" src="javascripts/jquery.placeholder.min.js"></script>
-  <script type="text/javascript" src="javascripts/contact_me.js"></script>
-  <script type="text/javascript" src="javascripts/smooth-scroll.js"></script>
-  <script type="text/javascript" src="javascripts/main.js"></script>
+  <div class="modal fade" id="project-modal">
+    <div class="inline-menu-container">
+      <a id="modal-close" class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+      </a>
+    </div>
+    <div class="modal-dialog">
+      <div class="modal-content"></div>
+    </div>
+  </div>
   </body>
 </html>

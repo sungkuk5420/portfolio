@@ -11,7 +11,10 @@
     "debug": "~2.2.0",
     "ejs": "^2.3.4",
     "express": "^4.13.4",
+    "iconv-lite": "^0.4.13",
+    "libmime": "^2.0.3",
     "morgan": "^1.6.1",
+    "nodemailer": "^0.7.1",
     "serve-favicon": "^2.3.0"
   }
 }
