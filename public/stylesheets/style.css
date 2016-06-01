@@ -1794,10 +1794,6 @@ ul.info-list li strong {
 
 @media (max-width:568px) {
 
-  .home {
-    overflow-y: scroll;
-  }
-
   .name-block-container h1 span {
     font-size: 26px;
   }
