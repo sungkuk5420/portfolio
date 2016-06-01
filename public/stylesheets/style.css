@@ -415,13 +415,15 @@ h2.menu-item:hover:after {
   border: 2px solid #FFF;
   color: #FFF;
   display: inline-block;
-  height: 35px;
-  width: 35px;
+  height: 19px;
+  width: 32px;
+  box-sizing: content-box;
+  padding-bottom: 5px;
 }
 
 .social li i {
-  line-height: 32px;
-  font-size: 12px;
+  line-height: 24px;
+  font-size: 18px;
 }
 
 .social a:hover {
@@ -1836,3 +1838,14 @@ ul.info-list li strong {
 .fa-spin {
   margin-top: 5px;
 }
+
+.flag {
+  width: 32px;
+  height: 24px;
+  background: url(../images/flags.png) no-repeat;
+  margin-top: -8px;
+}
+
+.flag.flag-jp {background-position: -32px -4px}
+.flag.flag-kr {background-position: 0 -36px}
+.flag.flag-us {background-position: -32px -36px}

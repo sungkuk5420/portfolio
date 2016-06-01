@@ -15,10 +15,10 @@
   <div class="inline-menu-container hidex">
 
     <ul class="inline-menu">
-      <li class="about menu-item" onclick="mainUtils.func.about();">이력서</li>
-      <li class="portfolio menu-item" onclick="mainUtils.func.portfolio();">포트폴리오</li>
-      <li class="blog menu-item" onclick="mainUtils.func.blog();">블로그</li>
-      <li class="contact menu-item" onclick="mainUtils.func.contact();">연락처</li>
+      <li data-langtext class="about menu-item" onclick="mainUtils.func.about();">이력서</li>
+      <li data-langtext class="portfolio menu-item" onclick="mainUtils.func.portfolio();">포트폴리오</li>
+      <li data-langtext class="blog menu-item" onclick="mainUtils.func.blog();">블로그</li>
+      <li data-langtext class="contact menu-item" onclick="mainUtils.func.contact();">연락처</li>
       <li id="close" onclick="mainUtils.func.close();">×</li>
     </ul>
 
@@ -34,9 +34,9 @@
           <a class="btn btn-download" data-langtext>이력서 다운로드</a>
           <ul class="social">
             <li><a href="#" onclick="window.open('https://www.facebook.com/sungkuk5420');"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#" onclick="test();"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" onclick="setLanguage('ko');"><img class="flag flag-kr"  /></a></li>
+            <li><a href="#" onclick="setLanguage('ja');"><img class="flag flag-jp"  /></a></li>
+            <li><a href="#" onclick="setLanguage('en');"><img class="flag flag-us"  /></a></li>
           </ul>
 
         </div>
@@ -44,22 +44,22 @@
       <div class="menu-blocks">
         <div class="about-block">
           <div class="about-block-container">
-            <h2 class="about menu-item" onclick="mainUtils.func.about();">이력서</h2>
+            <h2 data-langtext class="about menu-item" onclick="mainUtils.func.about();">이력서</h2>
           </div>
         </div>
         <div class="portfolio-block">
           <div class="portfolio-block-container">
-            <h2 class="portfolio menu-item" onclick="mainUtils.func.portfolio();">포트폴리오</h2>
+            <h2 data-langtext class="portfolio menu-item" onclick="mainUtils.func.portfolio();">포트폴리오</h2>
           </div>
         </div>
         <div class="blog-block">
           <div class="blog-block-container">
-            <h2 class="blog menu-item" onclick="mainUtils.func.blog();">블로그</h2>
+            <h2 data-langtext class="blog menu-item" onclick="mainUtils.func.blog();">블로그</h2>
           </div>
         </div>
         <div class="contact-block">
           <div class="contact-block-container">
-            <h2 class="contact menu-item" onclick="mainUtils.func.contact();">연락처</h2>
+            <h2 data-langtext class="contact menu-item" onclick="mainUtils.func.contact();">연락처</h2>
           </div>
         </div>
       </div>
@@ -70,25 +70,36 @@
         <section class="content" id="about">
 
           <div class="block-content">
-            <h3 class="block-title">포트폴리오</h3>
+            <h3 data-langtext class="block-title">포트폴리오</h3>
             <div class="row">
               <div class="col-md-7">
-                <p>저의 주 분야는 web FrontEnd입니다
-                  대학에서 기본적인 c, c++, java, mysql, linux등을 배우고 독학으로 php, javascript, jquery, html, css등을 배웠습니다
-                  </p>
-                <p>
-                  Angularjs나 react나 backbone이나 사용해본적 없지만 스스로 프레임워크를 사용하지않고 원 페이지 사이트에서 만들어본 경험이 있어 실력을 입증할 수 있습니다.
-                  만약 귀사가 사용하는 프레임워크가 있다면 배우겠습니다.
-                </p>
+                <p data-langtext >저의 주 분야는 web FrontEnd입니다 대학에서 기본적인 c, c++, java, mysql, linux등을 배우고 독학으로 php, javascript, jquery, html, css등을 배웠습니다</p>
+                <p data-langtext >Angularjs나 react나 backbone이나 사용해본적 없지만 프레임워크를 사용하지않고 원 페이지로 웹 서비스를 만들어본 경험이 있어 실력을 입증할 수 있습니다. <br>  만약 귀사가 사용하는 프레임워크가 있다면 배우겠습니다.</p>
+                <p data-langtext >2016년 05월부터 워킹홀리데이로 일본 오사카에서 거주 중입니다.</p>
                 <img class="sign" src="images/signature.png" alt="">
               </div>
               <div class="col-md-5">
                 <ul class="info-list">
-                  <li><strong>이름 : </strong>  김 성 국</li>
-                  <li><strong>생년 월일 : </strong>   1993년 06월 09일 </li>
-                  <li><strong>주소 : </strong>  오사카 쓰루미구 諸口６丁目１５−３３ 803호</li>
-                  <li><strong>이메일 : </strong>  sungkuk5420@gmail.com</li>
-                  <li><strong>전화 번호 : </strong>   +81 070-4385-3533</li>
+                  <li>
+                    <strong data-langtext >이름 : </strong>
+                    <span data-langtext="">김 성 국</span>
+                  </li>
+                  <li>
+                    <strong data-langtext >생년 월일 : </strong>
+                    <span data-langtext>1993년 06월 09일</span>
+                  </li>
+                  <li>
+                    <strong data-langtext >주소 : </strong>
+                    <span data-langtext>538-0051 오사카 쓰루미구 ６-１５−３３ 샤토 레이크 루이즈 803호</span>
+                  </li>
+                  <li>
+                    <strong data-langtext >이메일 : </strong>
+                    sungkuk5420@gmail.com
+                  </li>
+                  <li>
+                    <strong data-langtext >전화 번호 : </strong>
+                    +81 070-4385-3533
+                  </li>
                   <!--<li><strong>Skype : </strong>  James.Bond</li>
                   <li><strong>Interest : </strong>  freelance, full-time</li>-->
                 </ul>
