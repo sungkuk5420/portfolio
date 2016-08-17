@@ -1844,3 +1844,7 @@ ul.info-list li strong {
 .flag.flag-jp {background-position: -32px -4px}
 .flag.flag-kr {background-position: 0 -36px}
 .flag.flag-us {background-position: -32px -36px}
+
+.hidden{
+  display:none;
+}

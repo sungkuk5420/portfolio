@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <%include head.ejs%>
+
   </head>
   <body>
 
@@ -38,7 +39,9 @@
             <li><a href="#" onclick="setLanguage('ja');"><img class="flag flag-jp"  /></a></li>
             <li><a href="#" onclick="setLanguage('en');"><img class="flag flag-us"  /></a></li>
           </ul>
-
+          <form id="langForm" class="hidden" onsubmit="handleFile(this);return false;">
+            <input type="file" name="xlfile" id="xlf" value="/language.xls" />
+          </form>
         </div>
       </div>
       <div class="menu-blocks">
@@ -651,6 +654,9 @@
       <div class="modal-content"></div>
     </div>
   </div>
+
+  <script type="text/javascript" src="/javascripts/xlsx/xls.js"></script>
+  <script type="text/javascript" src="/javascripts/xlsx/shim.js"></script>
   <script type="text/javascript" src="javascripts/jquery-1.12.4.js"></script>
   <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
   <script type="text/javascript" src="javascripts/jquery.isotope.min.js"></script>
@@ -660,5 +666,14 @@
   <script type="text/javascript" src="javascripts/main.js"></script>
   <script type="text/javascript" src="javascripts/nodeMailer.js"></script>
   <script type="text/javascript" src="javascripts/language.js"></script>
+  <script type="text/javascript" src="javascripts/xlsx/shim.js"></script>
+  <script type="text/javascript" src="javascripts/xlsx/cpexcel.js"></script>
+  <script>
+
+    $("document").ready(function(){
+      $('#langForm').submit();
+    });
+
+  </script>
   </body>
 </html>

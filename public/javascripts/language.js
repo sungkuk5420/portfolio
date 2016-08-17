@@ -1,109 +1,5 @@
 $.lang = [];
 var nowLanguage = 'ko';
-$.lang.push({
-  ko : "반갑습니다.",
-  en : "Hi,I'm",
-  ja : '初めまして'
-});
-$.lang.push({
-  ko : '김성국입니다.',
-  en : 'KIM SUNGKUK',
-  ja : 'キムソングクです'
-});
-$.lang.push({
-  ko : '웹 개발자',
-  en : 'WEB DEVELOPER',
-  ja : 'ウェブプログラマです'
-});
-$.lang.push({
-  ko : '이력서 다운로드',
-  en : 'DOWNLOAD RESUME',
-  ja : '履歴書ダウンロード'
-});
-$.lang.push({
-  ko : '이력서',
-  en : 'RESUME',
-  ja : '履歴書'
-});
-$.lang.push({
-  ko : '포트폴리오',
-  en : 'PROFILE',
-  ja : 'ポートフォリオ'
-});
-$.lang.push({
-  ko : '블로그',
-  en : 'BLOG',
-  ja : 'ブログ'
-});
-$.lang.push({
-  ko : '연락처',
-  en : 'CALL ME',
-  ja : '連絡'
-});
-$.lang.push({
-  ko : '이름 :',
-  en : 'Name :',
-  ja : '名前 :'
-});
-
-$.lang.push({
-  ko : '생년 월일 :',
-  en : 'Date of birth :',
-  ja : '誕生日 :'
-});
-$.lang.push({
-  ko : '주소 :',
-  en : 'Address :',
-  ja : '住所 :'
-});
-
-$.lang.push({
-  ko : '이메일 :',
-  en : 'Email :',
-  ja : 'メール :'
-});
-
-$.lang.push({
-  ko : '전화 번호 :',
-  en : 'Phone :',
-  ja : '電話番号 :'
-});
-
-$.lang.push({
-  ko : '김 성 국',
-  en : 'KIM SUNGKUK　',
-  ja : '金 成 局'
-});
-
-$.lang.push({
-  ko : '1993년 06월 09일',
-  en : 'June 6, 1993',
-  ja : '1993年06月09日'
-});
-
-$.lang.push({
-  ko : '538-0051 오사카 쓰루미구 ６-１５−３３ 샤토 레이크 루이즈 803호',
-  en : '538-0051 Osaka-shi, Tsurumi-ku, Moroguchi, 6-15-33 Shato-reiku-ruizu Room 803 ',
-  ja : '〒538-0051 大阪府大阪市鶴見区諸口６丁目１５−３３ シャトー・レイク・ルイーズ 803号室'
-});
-
-$.lang.push({
-  ko : '저의 주 분야는 web FrontEnd입니다 <br> 대학에서 기본적인 c, c++, java, mysql, linux등을 배우고 독학으로 php, javascript, jquery, html, css등을 배웠습니다',
-  en : 'My state in charge is web frontend. <br> at the University of basic c, java, c++, my sql, linux and other, learn and a self-taught php java script, html, jquery, css, and the like.',
-  ja : '私の特技はweb FrontEndです <br>大学で基本的なc、c++、java、mysql、linuxなどを学んで独学でphp、javascript、jquery、html、cssなどを学びました'
-});
-
-$.lang.push({
-  ko : 'Angularjs나 react나 backbone이나 사용해본적 없지만 프레임워크를 사용하지않고 원 페이지로 웹 서비스를 만들어본 경험이 있어 실력을 입증할 수 있습니다. <br>  만약 귀사가 사용하는 프레임워크가 있다면 배우겠습니다.',
-  en : 'Angularjs and react backbone, or framework but have never used not seen Web service experience in running around and look. So Confident of skill. <br> if your company have a framework used by actor.',
-  ja : 'Angularjsやreactやbackboneや使ったことがありますがフレームワークを使用せず、ワンページでウェブサービスを作ってみた経験があり、実力を立証することができます。 <br>もし貴社が使用するフレームワークがあるなら、学びます。'
-});
-
-$.lang.push({
-  ko : '2016년 05월부터 워킹홀리데이로 일본 오사카에서 거주 중입니다.',
-  en : 'From May 2016,Have been living in Osaka, Japan in walking holiday.',
-  ja : '2016年05月からワーキングホリデイで日本大阪で住んでいます。'
-});
 
 /**
  * setLanguage
@@ -136,3 +32,222 @@ function arrayObjectIndexOf(myArray, searchText, property) {
   }
   return -1;
 }
+
+var X = XLS;
+var userabsValue=false;
+var useworkerValue=false;
+var xferableValue=false;
+var XW = {
+  /* worker message */
+  msg: 'xls',
+  /* worker scripts */
+  rABS: '/javascripts/xlsx/xlsworker2.js',
+  norABS: '/javascripts/xlsx/xlsworker1.js',
+  noxfer: '/javascripts/xlsx/xlsworker.js'
+};
+
+var rABS = typeof FileReader !== "undefined" && typeof FileReader.prototype !== "undefined" && typeof FileReader.prototype.readAsBinaryString !== "undefined";
+if(!rABS) {
+  userabsValue = false;
+}
+
+var use_worker = typeof Worker !== 'undefined';
+if(!use_worker) {
+  useworkerValue = false;
+}
+
+var transferable = use_worker;
+if(!transferable) {
+  xferableValue = false;
+}
+
+var wtf_mode = false;
+
+function fixdata(data) {
+  var o = "", l = 0, w = 10240;
+  for(; l<data.byteLength/w; ++l) o+=String.fromCharCode.apply(null,new Uint8Array(data.slice(l*w,l*w+w)));
+  o+=String.fromCharCode.apply(null, new Uint8Array(data.slice(l*w)));
+  return o;
+}
+
+function ab2str(data) {
+  var o = "", l = 0, w = 10240;
+  for(; l<data.byteLength/w; ++l) o+=String.fromCharCode.apply(null,new Uint16Array(data.slice(l*w,l*w+w)));
+  o+=String.fromCharCode.apply(null, new Uint16Array(data.slice(l*w)));
+  return o;
+}
+
+function s2ab(s) {
+  var b = new ArrayBuffer(s.length*2), v = new Uint16Array(b);
+  for (var i=0; i != s.length; ++i) v[i] = s.charCodeAt(i);
+  return [v, b];
+}
+
+function xw_noxfer(data, cb) {
+  var worker = new Worker(XW.noxfer);
+  worker.onmessage = function(e) {
+    switch(e.data.t) {
+      case 'ready': break;
+      case 'e': console.error(e.data.d); break;
+      case XW.msg: cb(JSON.parse(e.data.d)); break;
+    }
+  };
+  var arr = rABS ? data : btoa(fixdata(data));
+  worker.postMessage({d:arr,b:rABS});
+}
+
+function xw_xfer(data, cb) {
+  var worker = new Worker(rABS ? XW.rABS : XW.norABS);
+  worker.onmessage = function(e) {
+    switch(e.data.t) {
+      case 'ready': break;
+      case 'e': console.error(e.data.d); break;
+      default: xx=ab2str(e.data).replace(/\n/g,"\\n").replace(/\r/g,"\\r"); console.log("done"); cb(JSON.parse(xx)); break;
+    }
+  };
+  if(rABS) {
+    var val = s2ab(data);
+    worker.postMessage(val[1], [val[1]]);
+  } else {
+    worker.postMessage(data, [data]);
+  }
+}
+
+function xw(data, cb) {
+  transferable = xferableValue;
+  if(transferable) xw_xfer(data, cb);
+  else xw_noxfer(data, cb);
+}
+
+function get_radio_value( radioName ) {
+  var radios = document.getElementsByName( radioName );
+  for( var i = 0; i < radios.length; i++ ) {
+    if( radios[i].checked || radios.length === 1 ) {
+      return radios[i].value;
+    }
+  }
+}
+
+function to_json(workbook) {
+  console.log(workbook);
+  var result = {};
+  workbook.SheetNames.forEach(function(sheetName) {
+    var roa = X.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+    console.log(roa);
+    for(var i = 0, len = roa.length ; i < len ; i++){
+      $.lang.push({
+        ko : roa[i].ko,
+        en : roa[i].en,
+        ja : roa[i].ja
+      });
+    }
+    if(roa.length > 0){
+      result[sheetName] = roa;
+    }
+  });
+  return result;
+}
+
+function to_csv(workbook) {
+  var result = [];
+  workbook.SheetNames.forEach(function(sheetName) {
+    var csv = X.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+    if(csv.length > 0){
+      result.push("SHEET: " + sheetName);
+      result.push("");
+      result.push(csv);
+    }
+  });
+  return result.join("\n");
+}
+
+function to_formulae(workbook) {
+  var result = [];
+  workbook.SheetNames.forEach(function(sheetName) {
+    var formulae = X.utils.get_formulae(workbook.Sheets[sheetName]);
+    if(formulae.length > 0){
+      result.push("SHEET: " + sheetName);
+      result.push("");
+      result.push(formulae.join("\n"));
+    }
+  });
+  return result.join("\n");
+}
+
+function process_wb(wb) {
+  if(use_worker) XLS.SSF.load_table(wb.SSF);
+  var output = "";
+  //switch(get_radio_value("format")) {
+  switch('json') {
+    case "json":
+      output = JSON.stringify(to_json(wb), 2, 2);
+      break;
+    case "form":
+      output = to_formulae(wb);
+      break;
+    default:
+      output = to_csv(wb);
+  }
+  if(out.innerText === undefined) out.textContent = output;
+  else out.innerText = output;
+  if(typeof console !== 'undefined') console.log("output", new Date());
+}
+
+var xlf = document.getElementById('xlf');
+function handleFile(e) {
+  rABS = userabsValue;
+  use_worker = useworkerValue;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost:3000/language.xls', true);
+  xhr.responseType = 'blob';
+
+  xhr.onload = function(e) {
+    if (this.status == 200) {
+      // get binary data as a response
+      var blob = this.response;
+      var files = e.target.files;
+      var f = blob;
+
+      {
+        var reader = new FileReader();;
+        var name = f.name;
+
+        reader.onload = function(e) {
+          if(typeof console !== 'undefined') console.log("onload", new Date(), rABS, use_worker);
+          var data = e.target.result
+          if(use_worker) {
+            xw(data, process_wb);
+          } else {
+            var wb;
+            if(rABS) {
+              wb = X.read(data, {type: 'binary'});
+            } else {
+              var arr = fixdata(data);
+              wb = X.read(btoa(arr), {type: 'base64'});
+            }
+            process_wb(wb);
+          }
+        };
+
+        if(rABS) reader.readAsBinaryString(f);
+        else reader.readAsArrayBuffer(f);
+      }
+    }
+  };
+
+  xhr.send();
+
+
+}
+
+if(xlf.addEventListener) xlf.addEventListener('change', handleFile, false);
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36810333-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();

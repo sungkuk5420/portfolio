@@ -5,17 +5,26 @@ var nodemailer = require('nodemailer');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
+  $.get('/language.xls', function(data) {
+    console.log(data);
+  });
 });
 
 router.get('/colorfulTees', function(req, res, next) {
   res.render('colorfulTees', { title: 'Express' });
 });
 
-router.get('/luxuryWatch', function(req, res, next) {
-  res.render('luxuryWatch', { title: 'Express' });
+router.get('/xlsxText', function(req, res, next) {
+  res.render('xlsxText', { title: 'Express' });
 
 });
 
+router.post('/language',function(req, res, next) {
+  console.log(res);
+  $.get('/language.xls', function(data) {
+    console.log(data);
+  });
+});
 router.post('/mailSend',function(req, res, next) {
   var name = req.query.name;
   var data = {
@@ -64,4 +73,9 @@ router.post('/mailSend',function(req, res, next) {
   console.log(data);
   console.log(data.email);
 });
-module.exports = router;
+  module.exports = router;
+
+router.get('/luxuryWatch', function(req, res, next) {
+  res.render('luxuryWatch', { title: 'Express' });
+
+});
