@@ -199,7 +199,7 @@ function handleFile(e) {
   use_worker = useworkerValue;
 
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://localhost:3000/language.xls', true);
+  xhr.open('GET', 'http://ec2-52-34-253-229.us-west-2.compute.amazonaws.com:3000/language.xls', true);
   xhr.responseType = 'blob';
 
   xhr.onload = function(e) {
