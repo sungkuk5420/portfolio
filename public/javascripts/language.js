@@ -11,6 +11,9 @@ function setLanguage(currentLanguage) {
     console.log($this.data('langtext'));
     var searchIndex = arrayObjectIndexOf($.lang,$this.text().replace(/ /gi,''),nowLanguage);
     if(searchIndex != -1){
+      //if(nowLanguage == 'ja'){
+      // $this.addClass('japanText')
+      //}
       $this.html($.lang[searchIndex][currentLanguage]);
     }else{
       console.log($this.text());
@@ -200,6 +203,7 @@ function handleFile(e) {
 
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'http://ec2-52-34-253-229.us-west-2.compute.amazonaws.com:3000/language.xls', true);
+  //xhr.open('GET', 'http://localhost:3000/language.xls', true);
   xhr.responseType = 'blob';
 
   xhr.onload = function(e) {
