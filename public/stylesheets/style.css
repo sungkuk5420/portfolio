@@ -277,7 +277,7 @@ strong, small {
   height: 100%;
   position: absolute;
   overflow: hidden;
-  background: url(../images/bg.jpg) #333 40% 40%;
+  background: url(../images/bg_me.png) #333 40% 40%;
   background-size: cover;
 }
 
