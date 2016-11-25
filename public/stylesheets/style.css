@@ -277,7 +277,7 @@ strong, small {
   height: 100%;
   position: absolute;
   overflow: hidden;
-  background: url(../images/bg_me.png) #333 40% 40%;
+  background: url(../images/bg.png) #333 20% 100%;
   background-size: cover;
 }
 
@@ -292,7 +292,7 @@ h2.menu-item {
   position: relative;
   color: #FFF;
   cursor: pointer;
-  margin: 50px;
+  margin: 20px;
   font-size: 28px;
 }
 
@@ -1411,6 +1411,11 @@ ul.info-list li strong {
         9. RESPONSIVE
 ------------------------- */
 @media (min-width:1920px) {
+  .home{
+    background: url(../images/bg.png) #333 15% 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
   .name-block {
     -ms-transform: rotate(-34deg);
     -webkit-transform: rotate(-34deg);
@@ -1466,6 +1471,19 @@ ul.info-list li strong {
   }
 }
 
+@media (min-width:1555px) and (max-width:1919px) {
+  .home{
+    background: url(../images/bg.png) #1e1e1e 30% 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width:1280px) and (max-width:1555px) {
+  .home{
+    background: url(../images/bg.png) #333 50% 100%;
+    background-size: cover;
+  }
+}
 @media (min-width:1280px) and (max-width:1919px) {
 
   .name-block {
@@ -1510,7 +1528,10 @@ ul.info-list li strong {
 }
 
 @media (min-width:1025px) and (max-width:1280px) {
-
+  .home{
+    background: url(../images/bg.png) #333 50% 100%;
+    background-size: cover;
+  }
   .name-block {
     -ms-transform: rotate(-34deg);
     -webkit-transform: rotate(-34deg);
@@ -1604,7 +1625,10 @@ ul.info-list li strong {
 }
 
 @media (min-width:768px) and (max-width:980px) {
-
+  .home {
+    background: url(../images/bg.png) #333 20% 100%;
+    background-size:cover;
+  }
   .name-block {
     -ms-transform: rotate(-34deg);
     -webkit-transform: rotate(-34deg);
@@ -1652,7 +1676,7 @@ ul.info-list li strong {
 
 @media (max-width:800px) and (max-height:600px) {
   .home {
-    background: url(../images/bg.jpg) #333 30% 30%;
+    background: url(../images/bg.png) #333 30% 30%;
   }
 
   .name-block,
@@ -1723,7 +1747,8 @@ ul.info-list li strong {
 @media (max-width:768px) {
 
   .home {
-    background: url(../images/bg.jpg) #333 30% 30%;
+    background: url(../images/bg.png) #333 30% 100%;
+    background-size:cover;
   }
 
   .name-block,
