@@ -1471,14 +1471,14 @@ ul.info-list li strong {
   }
 }
 
-@media (min-width:1555px) and (max-width:1880px) {
+@media (min-width:1400px) and (max-width:1880px) {
   .home{
     background: url(../images/bg.png) #1e1e1e 30% 100%;
     background-size: cover;
     background-repeat: no-repeat;
   }
 }
-@media (min-width:1280px) and (max-width:1555px) {
+@media (min-width:1280px) and (max-width:1400px) {
   .home{
     background: url(../images/bg.png) #333 50% 100%;
     background-size: cover;
