@@ -1410,7 +1410,7 @@ ul.info-list li strong {
 /* -------------------------
         9. RESPONSIVE
 ------------------------- */
-@media (min-width:1920px) {
+@media (min-width:1880px) {
   .home{
     background: url(../images/bg.png) #333 15% 100%;
     background-size: contain;
@@ -1471,10 +1471,10 @@ ul.info-list li strong {
   }
 }
 
-@media (min-width:1555px) and (max-width:1919px) {
+@media (min-width:1555px) and (max-width:1880px) {
   .home{
     background: url(../images/bg.png) #1e1e1e 30% 100%;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 }
