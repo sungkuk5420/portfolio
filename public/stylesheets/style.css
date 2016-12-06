@@ -1406,16 +1406,17 @@ ul.info-list li strong {
   font-weight: 700;
 }
 
-
+@media (min-width:2150px) {
+  .home {
+    background: url(../images/bg.png) #333 15% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
 /* -------------------------
         9. RESPONSIVE
 ------------------------- */
 @media (min-width:1880px) {
-  .home{
-    background: url(../images/bg.png) #333 15% 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
   .name-block {
     -ms-transform: rotate(-34deg);
     -webkit-transform: rotate(-34deg);
@@ -1470,17 +1471,9 @@ ul.info-list li strong {
     left: 700px;
   }
 }
-
-@media (min-width:1415px) and (max-width:1880px) {
-  .home{
-    background: url(../images/bg.png) #1e1e1e 30% 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-}
 @media (min-width:1280px) and (max-width:1415px) {
   .home{
-    background: url(../images/bg.png) #333 50% 100%;
+    background: url(../images/bg.png) #333 20% 100%;
     background-size: cover;
   }
 }
@@ -1529,7 +1522,7 @@ ul.info-list li strong {
 
 @media (min-width:1025px) and (max-width:1280px) {
   .home{
-    background: url(../images/bg.png) #333 50% 100%;
+    background: url(../images/bg.png) #333 20% 100%;
     background-size: cover;
   }
   .name-block {
@@ -1747,7 +1740,7 @@ ul.info-list li strong {
 @media (max-width:768px) {
 
   .home {
-    background: url(../images/bg.png) #333 30% 100%;
+    background: url(../images/bg.png) #333 20% 100%;
     background-size:cover;
   }
 
