@@ -1329,6 +1329,7 @@ ul.info-list li strong {
   width: 70%;
   left: 30%;
   z-index: 99999;
+  top : 0;
 }
 
 #post-modal .inline-menu-container,
@@ -1373,6 +1374,7 @@ ul.info-list li strong {
   left: 30%;
   background: #FFF;
   transition: all 0.5s;
+  overflow-y: hidden;
 }
 
 #post-modal,

@@ -52,7 +52,13 @@ $('.menu-item').on( 'click', function() {
 		//$(project).modal({
 		//  remote: projectUrl + ' #project'
 		//})
-		
+		setTimeout(function(){
+			new IScroll('.modal',{
+				scrollbars: true,
+				mouseWheel: true
+			});
+		},200);
+
 		return false;
 	  
 	});
