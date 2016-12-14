@@ -1369,7 +1369,6 @@ ul.info-list li strong {
   width: 70%;
   max-height: auto;
   height: 100%;
-  overflow-y: scroll;
   top: 0;
   left: 30%;
   background: #FFF;
@@ -1728,7 +1727,6 @@ ul.info-list li strong {
   .content-blocks {
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
     left: 0;
   }
   .inline-menu-container {
@@ -1800,7 +1798,6 @@ ul.info-list li strong {
   .content-blocks {
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
     left: 0;
   }
   .inline-menu-container {

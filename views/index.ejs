@@ -669,9 +669,28 @@
   <script type="text/javascript" src="javascripts/language.js"></script>
   <script type="text/javascript" src="javascripts/xlsx/shim.js"></script>
   <script type="text/javascript" src="javascripts/xlsx/cpexcel.js"></script>
+  <script type="text/javascript" src="javascripts/iscroll.js"></script>
   <script>
 
     $("document").ready(function(){
+      new IScroll('.content-blocks.about',{
+        scrollbars: true,
+        mouseWheel: true
+      });
+      new IScroll('.content-blocks.portfolio',{
+        scrollbars: true,
+        mouseWheel: true
+      });
+      new IScroll('.content-blocks.blog',{
+        scrollbars: true,
+        mouseWheel: true
+      });
+      new IScroll('.content-blocks.contact',{
+        scrollbars: true,
+        mouseWheel: true
+      });
+
+
       $('#langForm').submit();
     });
 
