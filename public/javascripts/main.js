@@ -11,7 +11,7 @@
 	view : {},  //view
 	templates : {} //pf불러올때
 };
-
+var modalScroll = null;
 $(window).load(function() {
 	setTimeout(function(){
 		$(".preloader").fadeOut("slow", function(){
@@ -53,7 +53,7 @@ $('.menu-item').on( 'click', function() {
 		//  remote: projectUrl + ' #project'
 		//})
 		setTimeout(function(){
-			new IScroll('.modal',{
+			modalScroll = new IScroll('.modal',{
 				scrollbars: true,
 				mouseWheel: true
 			});
