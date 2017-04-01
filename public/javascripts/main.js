@@ -1,20 +1,21 @@
 (typeof global == 'undefined' ? window : global).mainUtils = mainUtils = {
 
-	common : {}, //°øÅë
-	constants : {}, //»ó¼ö
-	value : {}, //º¯¼ö
-	data : {}, //obj´ÜÀ§ÀÇ µ¥ÀÌÅÍµé
-	net : {}, //Åë½Å. ajax
-	draw : {}, //¹Ýº¹ÀûÀÎ ±×¸². ui±×¸±¶§
-	func : {}, //ÇÔ¼ö
+	common : {}, //ï¿½ï¿½ï¿½ï¿½
+	constants : {}, //ï¿½ï¿½ï¿½
+	value : {}, //ï¿½ï¿½ï¿½ï¿½
+	data : {}, //objï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½
+	net : {}, //ï¿½ï¿½ï¿½. ajax
+	draw : {}, //ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½. uiï¿½×¸ï¿½ï¿½ï¿½
+	func : {}, //ï¿½Ô¼ï¿½
 	modal : {}, //modal.
 	view : {},  //view
-	templates : {} //pfºÒ·¯¿Ã¶§
+	templates : {} //pfï¿½Ò·ï¿½ï¿½Ã¶ï¿½
 };
 var modalScroll = null;
 $(window).load(function() {
 	setTimeout(function(){
 		$(".preloader").fadeOut("slow", function(){
+			setLanguage('ja');
 			$(".preloader-left").addClass("slide-left");
 			$(".preloader-right").addClass("slide-right");
 			$("#portfolio-case").addClass("full-portfolio");
