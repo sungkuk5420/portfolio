@@ -8,15 +8,15 @@ var nowLanguage = 'ko';
 function setLanguage(currentLanguage) {
   $('[data-langtext]').each(function() {
     var $this = $(this);
-    console.log($this.data('langtext'));
-    var searchIndex = arrayObjectIndexOf($.lang,$this.text().replace(/ /gi,''),nowLanguage);
+    //console.log($this.data('langtext'));
+    console.log($.lang,$this.text().replace(/ /gi,''));
+    console.log(nowLanguage);
+    var searchIndex = arrayObjectIndexOf($.lang,$this.text(),nowLanguage);
+    console.log(searchIndex);
     if(searchIndex != -1){
-      //if(nowLanguage == 'ja'){
-      // $this.addClass('japanText')
-      //}
       $this.html($.lang[searchIndex][currentLanguage]);
     }else{
-      console.log($this.text());
+      //console.log($this.text());
     }
   }).each(function() {
     nowLanguage = currentLanguage;
@@ -30,10 +30,20 @@ $('button').click(function() {
 });
 
 function arrayObjectIndexOf(myArray, searchText, property) {
+  console.log(property);
   for(var i = 0, len = myArray.length; i < len; i++) {
-    if (myArray[i][property].replace(/ /gi,'').replace(/<br>/gi,'') === searchText ) return i;
+    if(myArray[i][property] !== undefined){
+      if (replaceText(myArray[i][property]) === replaceText(searchText) ) return i;
+    }else{
+      console.log(myArray[i][property]);
+    }
   }
   return -1;
+}
+
+function replaceText(text){
+  var resultText = text.replace(/ /gi,'').replace(/<br>/gi,'').replace(/\r/gi,'').replace(/\n/gi,'').replace(/\r\n/gi,'');
+  return resultText;
 }
 
 var X = XLS;
@@ -132,11 +142,11 @@ function get_radio_value( radioName ) {
 }
 
 function to_json(workbook) {
-  console.log(workbook);
+  //console.log(workbook);
   var result = {};
   workbook.SheetNames.forEach(function(sheetName) {
     var roa = X.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-    console.log(roa);
+    //console.log(roa);
     for(var i = 0, len = roa.length ; i < len ; i++){
       $.lang.push({
         ko : roa[i].ko,
@@ -147,6 +157,7 @@ function to_json(workbook) {
     if(roa.length > 0){
       result[sheetName] = roa;
     }
+    console.log($.lang);
   });
   return result;
 }
@@ -191,8 +202,6 @@ function process_wb(wb) {
     default:
       output = to_csv(wb);
   }
-  if(out.innerText === undefined) out.textContent = output;
-  else out.innerText = output;
   if(typeof console !== 'undefined') console.log("output", new Date());
 }
 
@@ -202,8 +211,8 @@ function handleFile(e) {
   use_worker = useworkerValue;
 
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://ec2-52-68-168-194.ap-northeast-1.compute.amazonaws.com:3000/language.xls', true);
-  //xhr.open('GET', 'http://localhost:3000/language.xls', true);
+  //xhr.open('GET', 'http://ec2-52-68-168-194.ap-northeast-1.compute.amazonaws.com:3000/language.xls', true);
+  xhr.open('GET', 'http://localhost:3000/language.xls', true);
   xhr.responseType = 'blob';
 
   xhr.onload = function(e) {
@@ -219,7 +228,7 @@ function handleFile(e) {
 
         reader.onload = function(e) {
           if(typeof console !== 'undefined') console.log("onload", new Date(), rABS, use_worker);
-          var data = e.target.result
+          var data = e.target.result;
           if(use_worker) {
             xw(data, process_wb);
           } else {
