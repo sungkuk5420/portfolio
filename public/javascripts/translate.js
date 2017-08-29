@@ -80,26 +80,30 @@ function translateAPI(koText,cb){
 }
 
 function getTextData(text){
-    var textData = DBData.filter(function(item){
-        return item.data.ko === text;
-    });
 
-    if(textData.length === 0){
-        textData = DBData.filter(function(item){
-            return item.data.ja === text;
+    if(DBData !== undefined){
+        var textData = DBData.filter(function(item){
+            return item.data.ko === text;
         });
+
+        if(textData.length === 0){
+            textData = DBData.filter(function(item){
+                return item.data.ja === text;
+            });
+        }
+
+        if(textData.length !== 0){
+            return textData[0];
+        }else{
+            return undefined;
+        }
     }
 
-    if(textData.length !== 0){
-        return textData[0];
-    }else{
-        return undefined;
-    }
 }
 
 function translateInit(){
     getDataBase(function(){
         console.log(DBData);
-        allTextTranslate();
+        // allTextTranslate();
     });
 }
