@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var mailUtil = require('../public/javascripts/nodeMailer');
 var nodemailer = require('nodemailer');
 /* GET home page. */
 router.get('/', function(req, res, next) {
