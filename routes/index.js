@@ -93,14 +93,19 @@ router.get('/translate', function (req, res) {
     headers: {'X-Naver-Client-Id':client_id, 'X-Naver-Client-Secret': client_secret}
   };
   request.post(options, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
+    if(response != undefined){
 
-      // console.log(JSON.stringify(body));
-      //   res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
-      res.end(JSON.stringify(body));
-    } else {
-      res.status(response.statusCode).end();
-      console.log('error = ' + response.statusCode);
+      if (!error && response.statusCode == 200) {
+
+        // console.log(JSON.stringify(body));
+        //   res.writeHead(200, {'Content-Type': 'text/json;charset=utf-8'});
+        res.end(JSON.stringify(body));
+      } else {
+        res.status(response.statusCode).end();
+        console.log('error = ' + response.statusCode);
+      }
+    }else{
+      console.log('responseresponseresponse'+error, response);
     }
   });
 });

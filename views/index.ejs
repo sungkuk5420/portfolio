@@ -45,8 +45,8 @@
           <a class="btn btn-download" data-langtext href="/resume_sungkukKIM.zip" onclick="ga('send', 'event', 'portfolio','click','resumeDownload');">이력서 다운로드</a>
           <ul class="social">
             <li><a href="#" onclick="window.open('https://www.facebook.com/sungkuk5420');"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#" onclick="setLanguage('ko');"><img class="flag flag-kr"  /></a></li>
-            <li><a href="#" onclick="setLanguage('ja');"><img class="flag flag-jp"  /></a></li>
+            <li><a href="#" onclick="textTranslate({resultLang : 'ko' });"><img class="flag flag-kr"  /></a></li>
+            <li><a href="#" onclick="textTranslate({resultLang : 'ja' });"><img class="flag flag-jp"  /></a></li>
             <!--<li><a href="#" onclick="setLanguage('en');"><img class="flag flag-us"  /></a></li>-->
           </ul>
         </div>
@@ -858,7 +858,7 @@
     }
 
     $("document").ready(function(){
-
+        translateInit();
 //      if(!detectMobile()){
 //        $('#project-modal').css('overflow-y','scroll');
 //        $('#post-modal').css('overflow-y','scroll');
