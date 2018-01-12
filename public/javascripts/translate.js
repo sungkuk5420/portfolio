@@ -3,8 +3,8 @@
  */
 var DBData = undefined;
 // Initialize Firebase
-var config = {
-};
+var config = process.env.TRANSLATE_INFO;
+
 firebase.initializeApp(config);
 
 var BASELANG = 'ko',
