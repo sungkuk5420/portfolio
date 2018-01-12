@@ -3,8 +3,14 @@
  */
 var DBData = undefined;
 // Initialize Firebase
-var config = process.env.TRANSLATE_INFO;
-
+var config = {
+    apiKey: process.env.PORTFOLIO_API_KEY,
+    authDomain: process.env.PORTFOLIO_AUTO_DOMAIN,
+    databaseURL: process.env.PORTFOLIO_DATABASE_URL,
+    projectId: process.env.PORTFOLIO_PROJECT_ID,
+    storageBucket: process.env.PORTFOLIO_STORAGE_BUCKET,
+    messagingSenderId: process.env.PORTFOLIO_MESSAGEING_SENDER_ID
+};
 firebase.initializeApp(config);
 
 var BASELANG = 'ko',
