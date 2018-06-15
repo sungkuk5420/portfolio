@@ -95,7 +95,7 @@ gulp.task('combine-js', function () {
 
 // sass ファイルを css にこんコンパイルする.
 gulp.task('compile-sass', function () {
-    return gulp.src([paths.scss,'public/stylesheets/*/*.css','public/stylesheets/*.css'])
+    return gulp.src([paths.scss,'public/stylesheets/*/*.css'])
         .pipe(sass())
         .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
         .pipe(csso())
