@@ -8,6 +8,7 @@ var browserSync = require('browser-sync').create();
 var nodemon = require('gulp-nodemon');
 var stripDebug = require('gulp-strip-debug');
 var order = require("gulp-order");
+const imagemin = require('gulp-imagemin');
 
 
 var src = 'public';
@@ -16,6 +17,8 @@ var dist = 'public/dist';
 var paths = {
     // js: src + '/javascripts/**/*.js',
     js: src + '/javascripts/*/*.js',
+    css: src + '/stylesheets/*/*.css',
+    image: src + '/images/*/*.*',
     scss: src + '/scss/*/*.scss'
 };
 
@@ -95,13 +98,20 @@ gulp.task('combine-js', function () {
 
 // sass ファイルを css にこんコンパイルする.
 gulp.task('compile-sass', function () {
-    return gulp.src([paths.scss,'public/stylesheets/*/*.css'])
+    return gulp.src([paths.scss,paths.css,'public/stylesheets/*.css'])
         .pipe(sass())
         .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
         .pipe(csso())
         .pipe(concat('stylesheet.css'))
         .pipe(gulp.dest(dist + '/css'))
         .pipe(browserSync.reload({ stream : true }));
+});
+
+// image ファイルを compression する.
+gulp.task('compile-images', function () {
+    return gulp.src([paths.image,'public/images/*.*'])
+            .pipe(imagemin())
+            .pipe(gulp.dest(dist+'/images'))
 });
 
 // ファイルの変更感知とブラウザの再起動
@@ -114,4 +124,4 @@ gulp.task('watch', function () {
 //基本taskの設定
 gulp.task('default', [
     'combine-js', 'server',
-    'compile-sass','watch' ]);
+    'compile-sass','compile-images','watch' ]);
