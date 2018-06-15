@@ -2,10 +2,13 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var csso = require('gulp-csso');
 var browserSync = require('browser-sync').create();
 var nodemon = require('gulp-nodemon');
 var stripDebug = require('gulp-strip-debug');
 var order = require("gulp-order");
+
 
 var src = 'public';
 var dist = 'public/dist';
@@ -13,8 +16,21 @@ var dist = 'public/dist';
 var paths = {
     // js: src + '/javascripts/**/*.js',
     js: src + '/javascripts/*/*.js',
-    scss: src + '/scss/*.scss'
+    scss: src + '/scss/*/*.scss'
 };
+
+// Set the browser that you want to support
+const AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  ];
 
 // ウェブサーバーを localhost:3000 で実行する
 gulp.task('browser-sync', function() {
@@ -79,8 +95,11 @@ gulp.task('combine-js', function () {
 
 // sass ファイルを css にこんコンパイルする.
 gulp.task('compile-sass', function () {
-    return gulp.src([paths.scss,'public/stylesheets/*.css'])
+    return gulp.src([paths.scss,'public/stylesheets/*/*.css','public/stylesheets/*.css'])
         .pipe(sass())
+        .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+        .pipe(csso())
+        .pipe(concat('stylesheet.css'))
         .pipe(gulp.dest(dist + '/css'))
         .pipe(browserSync.reload({ stream : true }));
 });
