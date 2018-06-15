@@ -5,13 +5,14 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var nodemon = require('gulp-nodemon');
 var stripDebug = require('gulp-strip-debug');
+var order = require("gulp-order");
 
 var src = 'public';
 var dist = 'public/dist';
 
 var paths = {
     // js: src + '/javascripts/**/*.js',
-    js: src + '/javascripts/*.js',
+    js: src + '/javascripts/*/*.js',
     scss: src + '/scss/*.scss'
 };
 
@@ -57,7 +58,19 @@ gulp.task('server', ['browser-sync'], function () {
 
 //　Javascriptファイルを一つに併合
 gulp.task('combine-js', function () {
-    return gulp.src(paths.js)
+    console.log(paths.js)
+    return gulp.src([
+            'public/javascripts/core/jquery-1.12.4.js',
+            'public/javascripts/core/bootstrap.min.js',
+            'public/javascripts/core/jquery.isotope.min.js',
+            'public/javascripts/core/jquery.placeholder.min.js',
+            'public/javascripts/core/contact_me.js',
+            'public/javascripts/core/smooth-scroll.js',
+            'public/javascripts/core/iscroll.js',
+            'public/javascripts/core/firebase-4.3.0.js',
+            'public/firebaseKey.js',
+            'public/javascripts/userScript.js'
+        ])
         .pipe(stripDebug())
         .pipe(uglify())
         .pipe(concat('script.js'))
