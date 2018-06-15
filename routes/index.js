@@ -4,9 +4,9 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-  $.get('/language.xls', function(data) {
-    console.log(data);
-  });
+  // $.get('/language.xls', function(data) {
+  //   console.log(data);
+  // });
 });
 
 router.get('/colorfulTees', function(req, res, next) {
@@ -71,7 +71,6 @@ router.post('/language',function(req, res, next) {
 //   console.log(data);
 //   console.log(data.email);
 // });
-module.exports = router;
 
 router.get('/luxuryWatch', function(req, res, next) {
   res.render('luxuryWatch', { title: 'Express' });
