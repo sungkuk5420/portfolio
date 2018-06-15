@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var compression = require('compression')
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -24,6 +25,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+app.use(compression({filter: shouldCompress}))
+
+function shouldCompress (req, res) {
+   if (req.headers['x-no-compression']) {
+       // don't compress responses with this request header
+       return false
+   }
+
+  // fallback to standard filter function
+   return compression.filter(req, res)
+ }
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
