@@ -18,7 +18,7 @@ var paths = {
     // js: src + '/javascripts/**/*.js',
     js: src + '/javascripts/*/*.js',
     css: src + '/stylesheets/*/*.css',
-    image: src + '/images/*/*.*',
+    image: src + '/images/*/*.{jpg,png}',
     scss: src + '/scss/*/*.scss'
 };
 
@@ -109,7 +109,7 @@ gulp.task('compile-sass', function () {
 
 // image ファイルを compression する.
 gulp.task('compile-images', function () {
-    return gulp.src([paths.image,'public/images/*.*'])
+    return gulp.src([paths.image,'public/images/*.{jpg,png}'])
             .pipe(imagemin())
             .pipe(gulp.dest(dist+'/images'))
 });
