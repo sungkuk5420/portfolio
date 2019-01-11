@@ -46,7 +46,7 @@ gulp.task('browser-sync', function() {
 });
 
 //nodeファイルの変更するとサーバーを自動更新
-gulp.task('server', ['browser-sync'], function () {
+gulp.task('server',  gulp.series( gulp.parallel('browser-sync')), function () {
     nodemon({
         script: './app.js',
         ext: 'js css',
@@ -116,12 +116,12 @@ gulp.task('compile-images', function () {
 
 // ファイルの変更感知とブラウザの再起動
 gulp.task('watch', function () {
-    gulp.watch(paths.js, ['combine-js']);
-    gulp.watch(paths.scss, ['compile-sass']).on('change', browserSync.reload);
+    gulp.watch(paths.js, gulp.task('combine-js'));
+    gulp.watch(paths.scss, gulp.task('compile-sass')).on('change', browserSync.reload);
     gulp.watch(dist + '/**');
 });
 
 //基本taskの設定
-gulp.task('default', [
+gulp.task('default', gulp.series( gulp.parallel(
     'combine-js', 'server',
-    'compile-sass','compile-images','watch' ]);
+    'compile-sass','compile-images','watch' )));
