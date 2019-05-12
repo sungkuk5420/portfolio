@@ -821,7 +821,7 @@
 
 
   <script type="text/javascript" src="dist/js/script.js"></script>
-  <script type="text/javascript" src="http://13.125.246.215:4000/javascripts/translate.min.js"></script>
+  <!-- <script type="text/javascript" src="http://13.125.246.215:4000/javascripts/translate.min.js"></script> -->
 
   <script>
     function detectMobile() {
@@ -841,12 +841,12 @@
     }
 
     $("document").ready(function(){
-        translateInit();
-//      if(!detectMobile()){
-//        $('#project-modal').css('overflow-y','scroll');
-//        $('#post-modal').css('overflow-y','scroll');
-//        $('.content-blocks').css('overflow-y','scroll');
-//      }else{
+      //translateInit();
+      if(!detectMobile()){
+        $('#project-modal').css('overflow-y','scroll');
+        $('#post-modal').css('overflow-y','scroll');
+        $('.content-blocks').css('overflow-y','scroll');
+      }else{
         new IScroll('.content-blocks.about',{
           scrollbars: true,
           mouseWheel: true
@@ -867,9 +867,7 @@
           scrollbars: true,
           mouseWheel: true
         });
-//      }
-
-
+      }
 
       $('#langForm').submit();
     });

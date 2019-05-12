@@ -86,8 +86,8 @@ gulp.task('combine-js', function () {
             'public/javascripts/core/contact_me.js',
             'public/javascripts/core/smooth-scroll.js',
             'public/javascripts/core/iscroll.js',
-            'public/javascripts/core/firebase-4.3.0.js',
-            'public/firebaseKey.js',
+            // 'public/javascripts/core/firebase-4.3.0.js',
+            // 'public/firebaseKey.js',
             'public/javascripts/userScript.js'
         ])
         .pipe(stripDebug())
@@ -124,4 +124,4 @@ gulp.task('watch', function () {
 //基本taskの設定
 gulp.task('default', gulp.series( gulp.parallel(
     'combine-js', 'server',
-    'compile-sass','compile-images','watch' )));
+    'watch' )));
