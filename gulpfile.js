@@ -33,24 +33,24 @@ const AUTOPREFIXER_BROWSERS = [
     'ios >= 7',
     'android >= 4.4',
     'bb >= 10'
-  ];
+];
 
 // ウェブサーバーを localhost:3000 で実行する
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync.init({
         files: ['public/**/*.*', 'views/**/*.*'], // BrowserSyncにまかせるファイル群
-        proxy: 'http://localhost:3000',  // express の動作するポートにプロキシ
-        port: 4000,  // BrowserSync は 4000 番ポートで起動
-        open: true  // ブラウザ open する
+        proxy: 'http://localhost:3000', // express の動作するポートにプロキシ
+        port: 4000, // BrowserSync は 4000 番ポートで起動
+        open: true // ブラウザ open する
     });
 });
 
 //nodeファイルの変更するとサーバーを自動更新
-gulp.task('server',  gulp.series( gulp.parallel('browser-sync')), function () {
+gulp.task('server', gulp.series(gulp.parallel('browser-sync')), function () {
     nodemon({
         script: './app.js',
         ext: 'js css',
-        ignore: [  // nodemon で監視しないディレクトリ
+        ignore: [ // nodemon で監視しないディレクトリ
             'node_modules',
             'bin',
             'views',
@@ -59,17 +59,19 @@ gulp.task('server',  gulp.series( gulp.parallel('browser-sync')), function () {
         env: {
             'NODE_ENV': 'development'
         },
-        stdout: false  // Express の再起動時のログを監視するため
-    }).on('readable', function() {
-        this.stdout.on('data', function(chunk) {
+        stdout: false // Express の再起動時のログを監視するため
+    }).on('readable', function () {
+        this.stdout.on('data', function (chunk) {
             if (/^Express\ server\ listening/.test(chunk)) {
                 // Express の再起動が完了したら、reload() でBrowserSync に通知。
                 // ※Express で出力する起動時のメッセージに合わせて比較文字列は修正
-                browserSync.reload({ stream: false });
+                browserSync.reload({
+                    stream: false
+                });
             }
             process.stdout.write(chunk);
         });
-        this.stderr.on('data', function(chunk) {
+        this.stderr.on('data', function (chunk) {
             process.stderr.write(chunk);
         });
     });
@@ -98,20 +100,24 @@ gulp.task('combine-js', function () {
 
 // sass ファイルを css にこんコンパイルする.
 gulp.task('compile-sass', function () {
-    return gulp.src([paths.scss,paths.css,'public/stylesheets/*.css'])
+    return gulp.src([paths.scss, paths.css, 'public/stylesheets/*.css'])
         .pipe(sass())
-        .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+        .pipe(autoprefixer({
+            browsers: AUTOPREFIXER_BROWSERS
+        }))
         .pipe(csso())
         .pipe(concat('stylesheet.css'))
         .pipe(gulp.dest(dist + '/css'))
-        .pipe(browserSync.reload({ stream : true }));
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 // image ファイルを compression する.
 gulp.task('compile-images', function () {
-    return gulp.src([paths.image,'public/images/*.{jpg,png}'])
-            .pipe(imagemin())
-            .pipe(gulp.dest(dist+'/images'))
+    return gulp.src([paths.image, 'public/images/*.{jpg,png}'])
+        .pipe(imagemin())
+        .pipe(gulp.dest(dist + '/images'))
 });
 
 // ファイルの変更感知とブラウザの再起動
@@ -122,6 +128,7 @@ gulp.task('watch', function () {
 });
 
 //基本taskの設定
-gulp.task('default', gulp.series( gulp.parallel(
+gulp.task('default', gulp.series(gulp.parallel(
     'combine-js', 'server',
-    'watch' )));
+    'compile-sass', 'compile-images',
+    'watch')));
