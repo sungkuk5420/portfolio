@@ -7,7 +7,6 @@ var csso = require('gulp-csso');
 var browserSync = require('browser-sync').create();
 var nodemon = require('gulp-nodemon');
 var stripDebug = require('gulp-strip-debug');
-var order = require("gulp-order");
 const imagemin = require('gulp-imagemin');
 
 
@@ -36,19 +35,16 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 // ウェブサーバーを localhost:3000 で実行する
-gulp.task('browser-sync', function () {
+gulp.task('browser-sync', function (done) {
     browserSync.init({
         files: ['public/**/*.*', 'views/**/*.*'], // BrowserSyncにまかせるファイル群
         proxy: 'http://localhost:3000', // express の動作するポートにプロキシ
         port: 4000, // BrowserSync は 4000 番ポートで起動
         open: true // ブラウザ open する
     });
-});
-
-//nodeファイルの変更するとサーバーを自動更新
-gulp.task('server', gulp.series(gulp.parallel('browser-sync')), function () {
+    
     nodemon({
-        script: './app.js',
+        script: 'app.js',
         ext: 'js css',
         ignore: [ // nodemon で監視しないディレクトリ
             'node_modules',
@@ -59,23 +55,13 @@ gulp.task('server', gulp.series(gulp.parallel('browser-sync')), function () {
         env: {
             'NODE_ENV': 'development'
         },
-        stdout: false // Express の再起動時のログを監視するため
-    }).on('readable', function () {
-        this.stdout.on('data', function (chunk) {
-            if (/^Express\ server\ listening/.test(chunk)) {
-                // Express の再起動が完了したら、reload() でBrowserSync に通知。
-                // ※Express で出力する起動時のメッセージに合わせて比較文字列は修正
-                browserSync.reload({
-                    stream: false
-                });
-            }
-            process.stdout.write(chunk);
-        });
-        this.stderr.on('data', function (chunk) {
-            process.stderr.write(chunk);
-        });
+        stdout: false, // Express の再起動時のログを監視するため
+        done: done
     });
 });
+
+//nodeファイルの変更するとサーバーを自動更新
+gulp.task('server', gulp.series(gulp.parallel('browser-sync')));
 
 //　Javascriptファイルを一つに併合
 gulp.task('combine-js', function () {
@@ -88,8 +74,6 @@ gulp.task('combine-js', function () {
             'public/javascripts/core/contact_me.js',
             'public/javascripts/core/smooth-scroll.js',
             'public/javascripts/core/iscroll.js',
-            // 'public/javascripts/core/firebase-4.3.0.js',
-            // 'public/firebaseKey.js',
             'public/javascripts/userScript.js'
         ])
         .pipe(stripDebug())
