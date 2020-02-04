@@ -11,7 +11,7 @@ const imagemin = require('gulp-imagemin');
 
 
 var src = 'public';
-var dist = 'public/dist';
+var dist = 'dist';
 
 var paths = {
     // js: src + '/javascripts/**/*.js',
