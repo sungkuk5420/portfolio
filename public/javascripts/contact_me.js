@@ -26,6 +26,7 @@ jQuery(document).ready(function() {
     if (!e) {
       formInput = $(this).serialize();
       console.log(formInput);
+      $(".requiretop").val("");
       $.ajax($(this).attr("action"), {
         data: formInput,
         type: "POST",
@@ -35,7 +36,6 @@ jQuery(document).ready(function() {
               data.statusText +
               '"</strong></div></div>'
           );
-          $(".requiretop").val("");
         },
         success: function(data) {
           console.log("success");
@@ -43,7 +43,6 @@ jQuery(document).ready(function() {
           $("form#formcontactus").append(
             '<div class="col-xs-12"><div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>Your message has been sent, we will get back to you as soon as possible !</strong></div></div>'
           );
-          $(".requiretop").val("");
         }
       });
     }
