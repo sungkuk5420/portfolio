@@ -2,7 +2,8 @@
   "apps": [
     {
       "name": "portpolio",
-      "script": "gulp"
+      "script": "npm",
+      "args": "start"
     }
   ]
 }
