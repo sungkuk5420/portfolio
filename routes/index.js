@@ -6,7 +6,7 @@ dotenv.config();
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "`KIM SUNGKUK`" });
+  res.render("index", { title: "KIM SUNGKUK" });
 });
 
 router.get("/colorfulTees", function(req, res, next) {
