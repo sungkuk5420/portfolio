@@ -1,18 +1,6 @@
 /**
  * Created by pc on 2017/06/20.
  */
-(typeof global == "undefined" ? window : global).mainUtils = mainUtils = {
-  common: {}, //����
-  constants: {}, //���
-  value: {}, //����
-  data: {}, //obj������ �����͵�
-  net: {}, //���. ajax
-  draw: {}, //�ݺ����� �׸�. ui�׸���
-  func: {}, //�Լ�
-  modal: {}, //modal.
-  view: {}, //view
-  templates: {} //pf�ҷ��ö�
-};
 var modalScroll = null;
 $(window).load(function() {
   setTimeout(function() {
@@ -81,7 +69,7 @@ $(".open-post").on("click", function() {
 });
 
 //On Click Open Menu Items
-mainUtils.common.menuClick = function() {
+const menuClick = function() {
   $(".name-block").addClass("reverse");
   $(".name-block-container").addClass("reverse");
   $(".menu-blocks").addClass("hidex");
@@ -90,8 +78,8 @@ mainUtils.common.menuClick = function() {
 };
 
 //On Click Open About/Resume Block
-mainUtils.func.about = function() {
-  mainUtils.common.menuClick();
+const about = function() {
+  menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
   $(".content-blocks.about").removeClass("hidex");
@@ -100,8 +88,8 @@ mainUtils.func.about = function() {
   $(".menu-item.about").addClass("active");
 };
 //On Click Open Portfolio Block
-mainUtils.func.portfolio = function() {
-  mainUtils.common.menuClick();
+const portfolio = function() {
+  menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
   $(".content-blocks.portfolio").removeClass("hidex");
@@ -110,8 +98,8 @@ mainUtils.func.portfolio = function() {
   $(".menu-item.portfolio").addClass("active");
 };
 //On Click Open Blog Block
-mainUtils.func.blog = function() {
-  mainUtils.common.menuClick();
+const blog = function() {
+  menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
   $(".content-blocks.blog").removeClass("hidex");
@@ -120,8 +108,8 @@ mainUtils.func.blog = function() {
   $(".menu-item.blog").addClass("active");
 };
 //On Click Open Contact Block
-mainUtils.func.contact = function() {
-  mainUtils.common.menuClick();
+const contact = function() {
+  menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
   $(".content-blocks.contact").removeClass("hidex");
@@ -131,7 +119,7 @@ mainUtils.func.contact = function() {
 };
 
 //On Click Close Blocks
-mainUtils.func.close = function() {
+const close = function() {
   $(".name-block").removeClass("reverse");
   $(".name-block-container").removeClass("reverse");
   $(".menu-blocks").removeClass("hidex");
