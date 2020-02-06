@@ -1,847 +1,863 @@
 <!DOCTYPE html>
 <html lang="en" class="csstransforms csstransforms3d csstransitions">
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title><%= title %></title>
+    <%include head.ejs%>
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function() {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(window, document, "script", "/javascripts/core/analytics.js", "ga");
 
-<head>
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <title><%= title %></title>
-  <%include head.ejs%>
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '/javascripts/core/analytics.js', 'ga');
+      ga("create", "UA-92186889-2", "auto");
+      ga("send", "pageview");
+    </script>
+  </head>
 
-    ga('create', 'UA-92186889-2', 'auto');
-    ga('send', 'pageview');
-  </script>
-</head>
-
-<body>
-
-  <div class="preloader">
-    <div class="spinner"><strong>Loading...<i class="fa-li fa fa-spinner fa-spin"></i></strong></div>
-  </div>
-  <div class="preloader-left "></div>
-  <div class="preloader-right "></div>
-
-  <div class="inline-menu-container hidex">
-
-    <ul class="inline-menu">
-      <li data-langtext class="about menu-item"
-        onclick="mainUtils.func.about(); ga('send', 'event', 'portfolio','click','resumePage');">이력서</li>
-      <li data-langtext class="portfolio menu-item"
-        onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');">포트폴리오</li>
-      <li data-langtext class="blog menu-item" onclick="mainUtils.func.blog();">블로그</li>
-      <li data-langtext class="contact menu-item" onclick="mainUtils.func.contact();">연락처</li>
-      <li id="close" onclick="mainUtils.func.close();">×</li>
-    </ul>
-
-  </div>
-
-  <section class="home">
-    <div class="container">
-      <div class="name-block">
-        <div class="name-block-container">
-          <span data-langtext
-            style="font-size: 28px; font-weight: 300; display: block; text-transform: capitalize;line-height: 60px; color : white">반갑습니다.</span>
-          <h1 data-langtext>김성국입니다.</h1>
-          <h2 data-langtext>웹 개발자</h2>
-          <a class="btn btn-download" data-langtext href="#"
-            onclick="ga('send', 'event', 'portfolio','click','resumeDownload');">이력서 다운로드</a>
-          <ul class="social">
-            <li><a href="#" onclick="window.open('https://www.facebook.com/sungkuk5420');"><i
-                  class="fa fa-facebook"></i></a></li>
-            <li><a href="#" onclick="textTranslate({resultLang : 'ko' });"><img class="flag flag-kr" /></a></li>
-            <li><a href="#" onclick="textTranslate({resultLang : 'ja' });"><img class="flag flag-jp" /></a></li>
-            <!--<li><a href="#" onclick="setLanguage('en');"><img class="flag flag-us"  /></a></li>-->
-          </ul>
-        </div>
+  <body>
+    <div class="preloader">
+      <div class="spinner">
+        <strong>Loading...<i class="fa-li fa fa-spinner fa-spin"></i></strong>
       </div>
-      <div class="menu-blocks">
-        <div class="about-block">
-          <div class="about-block-container">
-            <h2 data-langtext class="about menu-item"
-              onclick="mainUtils.func.about(); ga('send', 'event', 'portfolio','click','resumePage');">이력서</h2>
+    </div>
+    <div class="preloader-left "></div>
+    <div class="preloader-right "></div>
+
+    <div class="inline-menu-container hidex">
+      <ul class="inline-menu">
+        <li
+          data-langtext
+          class="about menu-item"
+          onclick="mainUtils.func.about(); ga('send', 'event', 'portfolio','click','resumePage');"
+        >
+          履歴書
+        </li>
+        <li
+          data-langtext
+          class="portfolio menu-item"
+          onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
+        >
+          ポートフォリオ
+        </li>
+        <li
+          data-langtext
+          class="blog menu-item"
+          onclick="mainUtils.func.blog();"
+        >
+          ブログ
+        </li>
+        <li
+          data-langtext
+          class="contact menu-item"
+          onclick="mainUtils.func.contact();"
+        >
+          連絡先
+        </li>
+        <li id="close" onclick="mainUtils.func.close();">×</li>
+      </ul>
+    </div>
+
+    <section class="home">
+      <div class="container">
+        <div class="name-block">
+          <div class="name-block-container">
+            <span
+              data-langtext
+              style="font-size: 28px; font-weight: 300; display: block; text-transform: capitalize;line-height: 60px; color : white"
+              >初めまして</span
+            >
+            <h1 data-langtext>金 城局です。</h1>
+            <h2 data-langtext>ウェブエンジニア</h2>
+            <!-- <a class="btn btn-download" data-langtext href="#" -->
+            <!-- onclick="ga('send', 'event', 'portfolio','click','resumeDownload');">이력서 다운로드</a> -->
+            <ul class="social">
+              <li>
+                <a
+                  href="#"
+                  onclick="window.open('https://www.facebook.com/sungkuk5420');"
+                  ><i class="fa fa-facebook"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" onclick="textTranslate({resultLang : 'ko' });"
+                  ><img class="flag flag-kr"
+                /></a>
+              </li>
+              <li>
+                <a href="#" onclick="textTranslate({resultLang : 'ja' });"
+                  ><img class="flag flag-jp"
+                /></a>
+              </li>
+              <!--<li><a href="#" onclick="setLanguage('en');"><img class="flag flag-us"  /></a></li>-->
+            </ul>
           </div>
         </div>
-        <div class="portfolio-block">
-          <div class="portfolio-block-container">
-            <h2 data-langtext class="portfolio menu-item"
-              onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');">포트폴리오</h2>
+        <div class="menu-blocks">
+          <div class="about-block">
+            <div class="about-block-container">
+              <h2
+                data-langtext
+                class="about menu-item"
+                onclick="mainUtils.func.about(); ga('send', 'event', 'portfolio','click','resumePage');"
+              >
+                履歴書
+              </h2>
+            </div>
+          </div>
+          <div class="portfolio-block">
+            <div class="portfolio-block-container">
+              <h2
+                data-langtext
+                class="portfolio menu-item"
+                onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
+              >
+                ポートフォリオ
+              </h2>
+            </div>
+          </div>
+          <div class="blog-block">
+            <div class="blog-block-container">
+              <h2
+                data-langtext
+                class="blog menu-item"
+                onclick="mainUtils.func.blog();"
+              >
+                ブログ
+              </h2>
+            </div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-block-container">
+              <h2
+                data-langtext
+                class="contact menu-item"
+                onclick="mainUtils.func.contact();"
+              >
+                連絡先
+              </h2>
+            </div>
           </div>
         </div>
-        <div class="blog-block">
-          <div class="blog-block-container">
-            <h2 data-langtext class="blog menu-item" onclick="mainUtils.func.blog();">블로그</h2>
-          </div>
-        </div>
-        <div class="contact-block">
-          <div class="contact-block-container">
-            <h2 data-langtext class="contact menu-item" onclick="mainUtils.func.contact();">연락처</h2>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="content-blocks about hidex">
-
-        <section class="content" id="about">
-
-          <div class="block-content">
-            <h3 data-langtext class="block-title">자기 소개</h3>
-            <div class="row">
-              <div class="col-md-7">
-                <p>
-                  <span data-langtext>처음 뵙겠습니다.</span><br>
-                  <!-- <span data-langtext>웹 개발자 김성국입니다.</span><br> -->
-                </p>
-              </div>
-              <div class="col-md-5">
-                <ul class="info-list">
-                  <li>
-                    <strong data-langtext>이름 : </strong>
-                    <span data-langtext>김 성 국</span>
-                  </li>
-                  <li>
-                    <strong data-langtext>생년 월일 : </strong>
-                    <span data-langtext>1993년 6월 9일</span>
-                  </li>
-                  <li>
-                    <strong data-langtext>주소 : </strong>
-                    <span data-langtext>오사카 쓰루미구</span>
-                  </li>
-                  <strong data-langtext>이메일 : </strong>
-                  sungkuk5420@gmail.com
-                  </li>
-                  <!--<li><strong>Skype : </strong>  James.Bond</li>
+        <div class="content-blocks about hidex">
+          <section class="content" id="about">
+            <div class="block-content">
+              <h3 data-langtext class="block-title">自己紹介</h3>
+              <div class="row">
+                <div class="col-md-7">
+                  <p>
+                    <span data-langtext>初めまして。</span><br />
+                    <!-- <span data-langtext>웹 개발자 김성국입니다.</span><br> -->
+                  </p>
+                </div>
+                <div class="col-md-5">
+                  <ul class="info-list">
+                    <li>
+                      <strong data-langtext>名前 : </strong>
+                      <span data-langtext>金　城局</span>
+                    </li>
+                    <li>
+                      <strong data-langtext>経歴</strong>
+                      <span data-langtext>５年目</span>
+                    </li>
+                    <li>
+                      <strong data-langtext>希望勤務先 : </strong>
+                      <span data-langtext>関西</span>
+                    </li>
+                    <strong data-langtext>メール : </strong>
+                    <li>
+                      sungkuk5420@gmail.com
+                    </li>
+                    <!--<li><strong>Skype : </strong>  James.Bond</li>
                   <li><strong>Interest : </strong>  freelance, full-time</li>-->
-                </ul>
-                <ul class="info-list">
-                  <li>
-                    <strong data-langtext>알림</strong><br>
-                    <span data-langtext>이 사이트는 전직활동이 시작된 2017년 04월 01일 부터 전직활동이 완료되는 시점까지 계속해서 업데이트 되고 있습니다.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="block-content ">
-            <h3 class="block-title" data-langtext>기술사항들</h3>
-            <div class="row">
-              <div class="col-sm-6">
-                <label class="progress-bar-label">Node.js - <span data-langtext>독학</span>＆<span data-langtext>2년간
-                    실무보조</span>＆<span data-langtext>개인프로젝트 3회</span></label><br>
-                <div class="progress">
-                  <div style="width: 50%;" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                    aria-valuemax="100">
-                    <span>50%</span>
-                  </div>
-                </div>
-                <label class="progress-bar-label">MySQL - <span data-langtext>독학</span></label><br>
-                <label class="progress-bar-label">HTML＆CSS - <span data-langtext>2년반 실무경험</span></label><br>
-                <label class="progress-bar-label">HTML5＆CSS3 - <span data-langtext>2년반 실무경험</span></label><br>
-                <label class="progress-bar-label">SASS - <span data-langtext>공부중</span></label><br>
-                <label class="progress-bar-label">ES6 - <span data-langtext>공부중</span></label><br>
-                <label class="progress-bar-label">VUE JS - <span data-langtext>공부중</span></label><br>
-                <label class="progress-bar-label">PHP - <span data-langtext>독학＆웹앱 개발경험 1회</span></label><br>
-                <label class="progress-bar-label">C++ - <span data-langtext>대학에서 배움</span></label><br>
-                <label class="progress-bar-label">C - <span data-langtext>대학에서 배움</span></label><br>
-                <label class="progress-bar-label">C# - <span data-langtext>대학에서 배움</span></label><br>
-                <label class="progress-bar-label">Java - <span data-langtext>대학에서 배움</span></label><br>
-                <label class="progress-bar-label">MYSQL - <span data-langtext>대학에서 배움</span>＆<span data-langtext>개인프로젝트
-                    3회</span></label><br>
-                <label class="progress-bar-label">Linux - <span data-langtext>대학에서 배움＆AWS구축경험</span></label><br>
-                <label class="progress-bar-label">bootstrap - <span data-langtext>독학</span>＆<span data-langtext>개인프로젝트
-                    3회</span></label><br>
-                <br>
-                <br>
-                <br>
-                <br>
-              </div>
-              <div class="col-sm-6">
-                <h4>Know-how</h4>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <ul class="icon-list">
-                      <li>웹 서비스 &amp; 사이트 개발</li>
-                      <li>웹 사용성</li>
-                      <li>웹 성능 고도화</li>
-                      <li>웹 어플리케이션</li>
-                      <li>웹사이트 구동 및 유지보수</li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-6">
-                    <ul class="icon-list">
-                      <li>서버 셋팅 및 구축</li>
-                      <li>데이터베이스 설계 및 구축</li>
-                      <li>준비중..</li>
-                      <li>준비중..</li>
-                      <li>준비중..</li>
-                      <li>준비중..</li>
-                      <li>준비중..</li>
-                    </ul>
-                  </div>
+                  </ul>
+                  <ul class="info-list">
+                    <li>
+                      <strong data-langtext>お知らせ</strong><br />
+                      <span data-langtext
+                        >2019年11月からフリーランサーで働いてます。</span
+                      >
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </div> -->
-
-          <div class="block-content ">
-            <h3 class="block-title" data-langtext>경험</h3>
-            <div class="timeline experience">
-
-              <div class="row ">
-                <div class="col-md-12">
-                  <div class="exp-holder">
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>웹 어플리케이션 – 공업소 고객관리 앱(안드로이드) </h4>
-                        <h5 data-langtext>2014년 03월 ~ 2014년 06월</h5>
-                        <!--<h5>2014 - <span class="current">Current</span></h5>-->
-                      </div>
-                      <p data-langtext>공업소의 스마트폰 웹앱 S/W 개발 및 서비스 구동(phonegap)</p>
-                      <p><span
+            <div class="block-content ">
+              <h3 class="block-title" data-langtext>경험</h3>
+              <div class="timeline experience">
+                <div class="row ">
+                  <div class="col-md-12">
+                    <div class="exp-holder">
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>
+                            웹 어플리케이션 – 공업소 고객관리 앱(안드로이드)
+                          </h4>
+                          <h5 data-langtext>2014년 03월 ~ 2014년 06월</h5>
+                          <!--<h5>2014 - <span class="current">Current</span></h5>-->
+                        </div>
+                        <p data-langtext>担当：Frontend, Backend</p>
+                        <!-- <p data-langtext>공업소의 스마트폰 웹앱 S/W 개발 및 서비스 구동(phonegap)</p> -->
+                        <!-- <p><span
                           data-langtext>사용언어</span>　javascript,jquery,html,css,jqueryMobile,PHP,phonegap,linux,mysql
-                      </p>
-                    </div>
-
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>웹 사이트 – 물품 ＆ 도서 관리 시스템</h4>
-                        <h5 data-langtext>2014년 08월 ~ 2014년 12월</h5>
+                      </p> -->
                       </div>
-                      <p data-langtext>주) partner에서 회사 및 그룹을 대상으로한 그룹형 도서 및 물품관리 시스템 기획 및 개발</p>
-                      <p><span data-langtext>사용언어</span>　javascript,jquery,html,css,node js,linux,mysql,bootstrap</p>
-                    </div>
 
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>웹 서비스 – 협업용 그룹웨어 웹 서비스 </h4>
-                        <h5 data-langtext>2015년 01월 ~ 2015년 12월</h5>
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>
+                            웹 사이트 – 물품 ＆ 도서 관리 시스템
+                          </h4>
+                          <h5 data-langtext>2014년 08월 ~ 2014년 12월</h5>
+                        </div>
+                        <!-- <p data-langtext>주) partner에서 회사 및 그룹을 대상으로한 그룹형 도서 및 물품관리 시스템 기획 및 개발</p>
+                      <p><span data-langtext>사용언어</span>　javascript,jquery,html,css,node js,linux,mysql,bootstrap</p> -->
                       </div>
-                      <p data-langtext>신세계 I&C (외주개발) 협업용 그룹웨어 블라썸톡 웹 파트 담당 개발 및 유지보수</p>
+
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>
+                            웹 서비스 – 협업용 그룹웨어 웹 서비스
+                          </h4>
+                          <h5 data-langtext>2015년 01월 ~ 2015년 12월</h5>
+                        </div>
+                        <!-- <p data-langtext>신세계 I&C (외주개발) 협업용 그룹웨어 블라썸톡 웹 파트 담당 개발 및 유지보수</p>
                       <p><span data-langtext>사용언어</span>　javascript,jquery,html,css,html5,css3,node
-                        js,linux,mongoDB,git</p>
-                    </div>
-
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>웹 서비스 – 자사 서비스 [GRAP] 협업용 그룹웨어 웹＆채팅메신저 서비스</h4>
-                        <h5 data-langtext>2016년 01월 ~ 2016년 12월</h5>
+                        js,linux,mongoDB,git</p> -->
                       </div>
-                      <p data-langtext>주) partner에서 협업용 그룹웨어 GRAP 메신저 서비스 개발</p>
+
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>
+                            웹 서비스 – 자사 서비스 [GRAP] 협업용 그룹웨어
+                            웹＆채팅메신저 서비스
+                          </h4>
+                          <h5 data-langtext>2016년 01월 ~ 2016년 12월</h5>
+                        </div>
+                        <!-- <p data-langtext>주) partner에서 협업용 그룹웨어 GRAP 메신저 서비스 개발</p>
                       <p data-langtext>현재 대한민국 육군, 스타벅스 코리아등 약 50,000명 이용중</p>
                       <p><span data-langtext>사용언어</span>　javascript,jquery,html,css,html5,css3,node
-                        js,linux,mongoDB,vue js,git</p>
-                    </div>
-
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>웹 서비스 – 일본어 단어장</h4>
-                        <h5 data-langtext>2016년 05월 ~ 2016년 08월</h5>
+                        js,linux,mongoDB,vue js,git</p> -->
                       </div>
-                      <p data-langtext>개인용 일본어 단어장 개발 (번역 API를 사용하여 자동 입력) </p>
-                      <p data-langtext>반응형으로 데스크톱,아이폰에서 퀴즈형식으로 공부중</p>
-                      <p><span data-langtext>사용언어</span>　javascript,jquery,html,css,bootstrap,translation api,mysql,
-                        aws, node js, git</p>
-                    </div>
 
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>웹 사이트 – 포트폴리오 사이트</h4>
-                        <h5 data-langtext>2016년 12월 ~ (취업으로 중단)</h5>
-                        <h5 data-langtext>2016년 04월 ~ (개발중)</h5>
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>웹 서비스 – 일본어 단어장</h4>
+                          <h5 data-langtext>2016년 05월 ~ 2016년 08월</h5>
+                        </div>
+                        <!-- <p data-langtext>개인용 일본어 단어장 개발 (번역 API를 사용하여 자동 입력) </p> -->
+                        <!-- <p data-langtext>반응형으로 데스크톱,아이폰에서 퀴즈형식으로 공부중</p> -->
+                        <!-- <p><span data-langtext>사용언어</span>　javascript,jquery,html,css,bootstrap,translation api,mysql,aws, node js, git</p> -->
                       </div>
-                      <p data-langtext>여러 사이트에 경력사항을 별도로 입력하기 싫어서 개발</p>
+
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>웹 사이트 – 포트폴리오 사이트</h4>
+                          <h5 data-langtext>2016년 12월</h5>
+                        </div>
+                        <!-- <p data-langtext>여러 사이트에 경력사항을 별도로 입력하기 싫어서 개발</p>
                       <p data-langtext>한국어 <-> 일본어 번역기능, 구글 애널리틱스로 사용자 통계 & 행동분석, 접속자수 체크(준비중)</p>
                       <p><span data-langtext>사용언어</span>　javascript,jquery,html,css,bootstrap,mysql, aws, node js,
-                        git, Google Analytics</p>
-                    </div>
-
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>웹 제작 회사 - 사이트의 리뉴얼 6건, 처음부터 제작한 사이트 1건</h4>
-                        <h5 data-langtext>2017년 01월 ~ 2017년 03월</h5>
+                        git, Google Analytics</p> -->
                       </div>
 
-                      <p data-langtext>웹 애니메이션 기술을 적용한 싱글 페이지 스크롤 사이트 제작 </p>
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>
+                            웹 제작 회사 - 사이트의 리뉴얼 6건, 처음부터 제작한
+                            사이트 1건
+                          </h4>
+                          <h5 data-langtext>2017년 01월 ~ 2017년 03월</h5>
+                        </div>
+
+                        <!-- <p data-langtext>웹 애니메이션 기술을 적용한 싱글 페이지 스크롤 사이트 제작 </p>
                       <p data-langtext>클라이언트 : 주)산텐, 주)카마타니, 영화[히루나카의유성]사이트, 지분은행, 주)미야가와공업,주)토우인, 하고로모푸드 등</p>
                       <p><span data-langtext>사용언어</span>　javascript,jquery,svn,html,css,html5,css3,sass</p>
                       <a href="https://www.hagoromofoods.co.jp/mai-special/" target="_blank" data-langtext>하고로모 푸드의 웹
-                        사이트 링크 (웹 애니메이션 유)</a>
+                        사이트 링크 (웹 애니메이션 유)</a> -->
+                      </div>
                     </div>
-
                   </div>
-                </div>
-                <div class="row text-center">
-                  <div class="col-md-12 btn-email">
-                    <a class="btn lowercase" href="#"
-                      onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
-                      data-langtext>자세히 보기</a><br>
+                  <div class="row text-center">
+                    <div class="col-md-12 btn-email">
+                      <a
+                        class="btn lowercase"
+                        href="#"
+                        onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
+                        data-langtext
+                        >자세히 보기</a
+                      ><br />
+                    </div>
                   </div>
                 </div>
               </div>
-
             </div>
-          </div>
 
-          <div class="block-content">
-            <h3 class="block-title" data-langtext>학력</h3>
-            <div class="timeline education">
-              <div class="row ">
-                <div class="col-md-12">
-                  <div class="exp-holder">
-                    <!-- <div class="exp">
+            <div class="block-content">
+              <h3 class="block-title" data-langtext>学歴</h3>
+              <div class="timeline education">
+                <div class="row ">
+                  <div class="col-md-12">
+                    <div class="exp-holder">
+                      <!-- <div class="exp">
                       <div class="hgroup">
                         <h4 data-langtext>부천 정보 산업고등학교 – 경영 정보과 </h4>
                         <h5 data-langtext>2009년 03월 ~ 2012년 02월</h5>
                       </div>
                     </div> -->
-                    <div class="exp">
-                      <div class="hgroup">
-                        <h4 data-langtext>인천대학교 – 컴퓨터 공학과 </h4>
-                        <h5 data-langtext>2012년 03월 ~ 2016년 02월</h5>
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>
+                            仁川国立大学校 – パソコン工学部　卒業（韓国）
+                          </h4>
+                          <h5 data-langtext>2012年 03月 ~ 2016年 02月</h5>
+                        </div>
                       </div>
+                      <!--<div class="exp">-->
+                      <!--<div class="hgroup">-->
+                      <!--<h4>School Of Science – Mutation Media </h4>-->
+                      <!--<h5>May 2015 - Sept 2015</h5>-->
+                      <!--</div>-->
+                      <!--<p>Ut enim ad minim veniam, quis nostrud exerc. Irure dolor in reprehend incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>-->
+                      <!--</div>-->
                     </div>
-                    <!--<div class="exp">-->
-                    <!--<div class="hgroup">-->
-                    <!--<h4>School Of Science – Mutation Media </h4>-->
-                    <!--<h5>May 2015 - Sept 2015</h5>-->
-                    <!--</div>-->
-                    <!--<p>Ut enim ad minim veniam, quis nostrud exerc. Irure dolor in reprehend incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>-->
-                    <!--</div>-->
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!--
-          <div class="block-content">
-              <h3 class="block-title" data-langtext>자격증</h3>
+            <div class="block-content">
+              <h3 class="block-title" data-langtext>社歴</h3>
               <div class="timeline education">
                 <div class="row ">
                   <div class="col-md-12">
                     <div class="exp-holder">
                       <div class="exp">
                         <div class="hgroup">
-                          <h4 data-langtext>정보기기운용기능사</h4>
+                          <h4 data-langtext>株式会社Partner</h4>
+                          <h5 data-langtext>2015年 08月 ~ 2017年 12月</h5>
                         </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>전산회계2급</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>ITQ Excel</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>ITQ PowerPoint</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>ITQ Word</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>ICDL Using the Computer and Managing Files(M2)</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>International Computer Driving Licence Start Certificate</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>MOUS Word 2007 Expert</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>리눅스 마스터 2급</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>전산회계 1급</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>일본어 능력시험 JLPT N3</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                        <div class="hgroup">
-                          <h4 data-langtext>일본어 능력시험 JLPT N2</h4>
-                        </div>
-                      </div>
-                      <div class="exp">
-                      <div class="hgroup">
-                      <h4>School Of Science – Mutation Media </h4>
-                      <h5>May 2015 - Sept 2015</h5>
-                      </div>
-                      <p>Ut enim ad minim veniam, quis nostrud exerc. Irure dolor in reprehend incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                       </div>
                     </div>
                   </div>
                 </div>
+                <!-- row end-->
+                <div class="row ">
+                  <div class="col-md-12">
+                    <div class="exp-holder">
+                      <div class="exp">
+                        <div class="hgroup">
+                          <h4 data-langtext>株式会社Partner</h4>
+                          <h5 data-langtext>2015年 08月 ~ 2017年 12月</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- row end-->
+                </div>
               </div>
-            </div> -->
+            </div>
 
-          <div class="block-content">
-            <h3 class="block-title" data-langtext>서비스</h3>
-            <div class="row">
-              <div class="col-sm-4 service">
-                <div class="service-icon">
-                  <i class="fa fa-desktop"></i>
+            <div class="block-content">
+              <h3 class="block-title" data-langtext>서비스</h3>
+              <div class="row">
+                <div class="col-sm-4 service">
+                  <div class="service-icon">
+                    <i class="fa fa-desktop"></i>
+                  </div>
+                  <h4 data-langtext>웹 개발</h4>
+                  <p data-langtext>웹기반 사이트 / 웹 어플리케이션 개발</p>
                 </div>
-                <h4 data-langtext>웹 개발</h4>
-                <p data-langtext>웹기반 사이트 / 웹 어플리케이션 개발</p>
+                <div class="col-sm-4 service">
+                  <div class="service-icon">
+                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                  </div>
+                  <h4 data-langtext>앱 개발</h4>
+                  <p data-langtext>
+                    Cordova, PWA, React Native기반 모바일 어플리케이션 개발
+                  </p>
+                </div>
+                <div class="col-sm-4 service">
+                  <div class="service-icon">
+                    <i class=" fa fa-image"></i>
+                  </div>
+                  <h4 data-langtext>준비중..</h4>
+                  <p data-langtext>준비중..</p>
+                </div>
               </div>
-              <div class="col-sm-4 service">
-                <div class="service-icon">
-                  <i class="fa fa-mobile" aria-hidden="true"></i>
-                </div>
-                <h4 data-langtext>앱 개발</h4>
-                <p data-langtext>Cordova, PWA, React Native기반 모바일 어플리케이션 개발</p>
+            </div>
+
+            <!--<div class="block-content">-->
+            <!--<h3 class="block-title">수상경력</h3>-->
+            <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+            <!--<div class="col-sm-3 awards">-->
+            <!--<img src="images/awards/1.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="col-sm-3 awards">-->
+            <!--<img src="images/awards/2.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="col-sm-3 awards">-->
+            <!--<img src="images/awards/3.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="col-sm-3 awards">-->
+            <!--<img src="images/awards/5.jpg" alt="">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="block-content">-->
+            <!--<h3 class="block-title">주변인의 평가.</h3>-->
+            <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+            <!--<ul class="testimonials">-->
+            <!--<li>-->
+            <!--<img src="images/testimonials/1.jpg" alt="">-->
+            <!--<blockquote>사용자를 고려한 UX & UI 디자인을 할 수 있습니다<p class="quote"><span>Brendon Rodgers</span> - CEO of xyz.com</p></blockquote>-->
+
+            <!--</li>-->
+            <!--<li>-->
+            <!--<img src="images/testimonials/2.jpg" alt="">-->
+            <!--<blockquote>웹 사이트의 표준화 및 성능을 고려하여 개발합니다 <p class="quote"><span>Becky Allwood</span> - Web Development of abc.com</p></blockquote>-->
+
+            <!--</li>-->
+            <!--<li>-->
+            <!--<img src="images/testimonials/3.jpg" alt="">-->
+            <!--<blockquote>다양한 서비스를 개발해본 경험이 있습니다.<p class="quote"><span>Elly Page</span> - client of nfl.com</p></blockquote>-->
+
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <div class="row text-center">
+              <div class="col-md-12 btn-email">
+                <a
+                  class="btn lowercase"
+                  href="#"
+                  onclick="mainUtils.func.contact();"
+                  >sungkuk5420@gmail.com</a
+                ><br />
+                <!-- <small data-langtext>언제라도 연락주세요.</small> -->
               </div>
-              <div class="col-sm-4 service">
-                <div class="service-icon">
-                  <i class=" fa fa-image"></i>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-blocks portfolio hidex">
+      <section class="content">
+        <div class="block-content">
+          <h3 class="block-title">Portfolio(準備中…)</h3>
+          <div class="row">
+            <div class="col-md-12">
+              <ul id="filters">
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".graphic">Graphic</li>
+                <li data-filter=".web">Web</li>
+                <li data-filter=".video">Video</li>
+                <li data-filter=".apps">Apps</li>
+              </ul>
+              <div id="projects">
+                <div class="project graphic apps">
+                  <!--<a class="open-project" href="/luxuryWatch">-->
+                  <a class="" href="#">
+                    <div class="project-overlay">
+                      <div class="vcenter">
+                        <div class="centrize">
+                          <h4>Luxury Watch</h4>
+                          <p>Graphic / Apps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <img src="/dist/images/portfolio/1.jpg" alt="" />
                 </div>
-                <h4 data-langtext>준비중..</h4>
-                <p data-langtext>준비중..</p>
+                <div class="project web apps">
+                  <!--<a class="open-project" data-toggle="modal" href="/colorfulTees" data-target="#modal">-->
+                  <a class="" href="#">
+                    <div class="project-overlay">
+                      <div class="vcenter">
+                        <div class="centrize">
+                          <h4>Colorful Tees</h4>
+                          <p>Web / Apps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <img src="/dist/images/portfolio/2.jpg" alt="" />
+                </div>
+                <div class="project graphic video">
+                  <!--<a class="open-project" href="/luxuryWatch">-->
+                  <a class="" href="#">
+                    <div class="project-overlay">
+                      <div class="vcenter">
+                        <div class="centrize">
+                          <h4>Coffee Cups</h4>
+                          <p>Graphic / Video</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <img src="/dist/images/portfolio/3.jpg" alt="" />
+                </div>
+                <div class="project graphic">
+                  <!--<a class="open-project" href="/luxuryWatch">-->
+                  <a class="" href="#">
+                    <div class="project-overlay">
+                      <div class="vcenter">
+                        <div class="centrize">
+                          <h4>Stationary Branding</h4>
+                          <p>Web</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <img src="/dist/images/portfolio/4.jpg" alt="" />
+                </div>
+                <div class="project web video">
+                  <!--<a class="open-project" href="/luxuryWatch">-->
+                  <a class="" href="#">
+                    <div class="project-overlay">
+                      <div class="vcenter">
+                        <div class="centrize">
+                          <h4>Typewriter</h4>
+                          <p>Graphic / Video</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <img src="/dist/images/portfolio/5.jpg" alt="" />
+                </div>
+                <div class="project apps web">
+                  <!--<a class="open-project" href="/luxuryWatch">-->
+                  <a class="" href="#">
+                    <div class="project-overlay">
+                      <div class="vcenter">
+                        <div class="centrize">
+                          <h4>Magazine Cover</h4>
+                          <p>Web / Apps</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <img src="/dist/images/portfolio/6.jpg" alt="" />
+                </div>
+                <div class="project video web">
+                  <!--<a class="open-project" href="/luxuryWatch">-->
+                  <a class="" href="#">
+                    <div class="project-overlay">
+                      <div class="vcenter">
+                        <div class="centrize">
+                          <h4>An Ipad</h4>
+                          <p>Video / Web</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <img src="/dist/images/portfolio/7.jpg" alt="" />
+                </div>
               </div>
             </div>
           </div>
-
-          <!--<div class="block-content">-->
-          <!--<h3 class="block-title">수상경력</h3>-->
-          <!--<div class="row">-->
-          <!--<div class="col-md-12">-->
-          <!--<div class="col-sm-3 awards">-->
-          <!--<img src="images/awards/1.jpg" alt="">-->
-          <!--</div>-->
-          <!--<div class="col-sm-3 awards">-->
-          <!--<img src="images/awards/2.jpg" alt="">-->
-          <!--</div>-->
-          <!--<div class="col-sm-3 awards">-->
-          <!--<img src="images/awards/3.jpg" alt="">-->
-          <!--</div>-->
-          <!--<div class="col-sm-3 awards">-->
-          <!--<img src="images/awards/5.jpg" alt="">-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--<div class="block-content">-->
-          <!--<h3 class="block-title">주변인의 평가.</h3>-->
-          <!--<div class="row">-->
-          <!--<div class="col-md-12">-->
-          <!--<ul class="testimonials">-->
-          <!--<li>-->
-          <!--<img src="images/testimonials/1.jpg" alt="">-->
-          <!--<blockquote>사용자를 고려한 UX & UI 디자인을 할 수 있습니다<p class="quote"><span>Brendon Rodgers</span> - CEO of xyz.com</p></blockquote>-->
-
-          <!--</li>-->
-          <!--<li>-->
-          <!--<img src="images/testimonials/2.jpg" alt="">-->
-          <!--<blockquote>웹 사이트의 표준화 및 성능을 고려하여 개발합니다 <p class="quote"><span>Becky Allwood</span> - Web Development of abc.com</p></blockquote>-->
-
-          <!--</li>-->
-          <!--<li>-->
-          <!--<img src="images/testimonials/3.jpg" alt="">-->
-          <!--<blockquote>다양한 서비스를 개발해본 경험이 있습니다.<p class="quote"><span>Elly Page</span> - client of nfl.com</p></blockquote>-->
-
-          <!--</li>-->
-          <!--</ul>-->
-          <!--</div>-->
-          <!--</div>-->
 
           <div class="row text-center">
-            <div class="col-md-12 btn-email">
-              <a class="btn lowercase" href="#" onclick="mainUtils.func.contact();">sungkuk5420@gmail.com</a><br>
-              <!-- <small data-langtext>언제라도 연락주세요.</small> -->
-            </div>
-          </div>
-      </div>
-
-
-  </section>
-  </div>
-
-  <div class="content-blocks portfolio hidex">
-
-    <section class="content">
-
-      <div class="block-content">
-        <h3 class="block-title">Portfolio(準備中…)</h3>
-        <div class="row">
-          <div class="col-md-12">
-            <ul id="filters">
-              <li class="active" data-filter="*">All</li>
-              <li data-filter=".graphic">Graphic</li>
-              <li data-filter=".web">Web</li>
-              <li data-filter=".video">Video</li>
-              <li data-filter=".apps">Apps</li>
-            </ul>
-            <div id="projects">
-              <div class="project graphic apps">
-                <!--<a class="open-project" href="/luxuryWatch">-->
-                <a class="" href="#">
-                  <div class="project-overlay">
-                    <div class="vcenter">
-                      <div class="centrize">
-                        <h4>Luxury Watch</h4>
-                        <p>Graphic / Apps</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <img src="/dist/images/portfolio/1.jpg" alt="">
-              </div>
-              <div class="project web apps">
-                <!--<a class="open-project" data-toggle="modal" href="/colorfulTees" data-target="#modal">-->
-                <a class="" href="#">
-                  <div class="project-overlay">
-                    <div class="vcenter">
-                      <div class="centrize">
-                        <h4>Colorful Tees</h4>
-                        <p>Web / Apps</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <img src="/dist/images/portfolio/2.jpg" alt="">
-              </div>
-              <div class="project graphic video">
-                <!--<a class="open-project" href="/luxuryWatch">-->
-                <a class="" href="#">
-                  <div class="project-overlay">
-                    <div class="vcenter">
-                      <div class="centrize">
-                        <h4>Coffee Cups</h4>
-                        <p>Graphic / Video</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <img src="/dist/images/portfolio/3.jpg" alt="">
-              </div>
-              <div class="project graphic">
-                <!--<a class="open-project" href="/luxuryWatch">-->
-                <a class="" href="#">
-                  <div class="project-overlay">
-                    <div class="vcenter">
-                      <div class="centrize">
-                        <h4>Stationary Branding</h4>
-                        <p>Web</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <img src="/dist/images/portfolio/4.jpg" alt="">
-              </div>
-              <div class="project web video">
-                <!--<a class="open-project" href="/luxuryWatch">-->
-                <a class="" href="#">
-                  <div class="project-overlay">
-                    <div class="vcenter">
-                      <div class="centrize">
-                        <h4>Typewriter</h4>
-                        <p>Graphic / Video</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <img src="/dist/images/portfolio/5.jpg" alt="">
-              </div>
-              <div class="project apps web">
-                <!--<a class="open-project" href="/luxuryWatch">-->
-                <a class="" href="#">
-                  <div class="project-overlay">
-                    <div class="vcenter">
-                      <div class="centrize">
-                        <h4>Magazine Cover</h4>
-                        <p>Web / Apps</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <img src="/dist/images/portfolio/6.jpg" alt="">
-              </div>
-              <div class="project video web">
-                <!--<a class="open-project" href="/luxuryWatch">-->
-                <a class="" href="#">
-                  <div class="project-overlay">
-                    <div class="vcenter">
-                      <div class="centrize">
-                        <h4>An Ipad</h4>
-                        <p>Video / Web</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <img src="/dist/images/portfolio/7.jpg" alt="">
-              </div>
+            <div class="col-md-12">
+              <h4>Interested in working together?</h4>
+              <a class="btn lowercase" onclick="mainUtils.func.contact();"
+                >sungkuk5420@gmail.com</a
+              ><br />
             </div>
           </div>
         </div>
-
-        <div class="row text-center">
-          <div class="col-md-12">
-            <h4>Interested in working together?</h4>
-            <a class="btn lowercase" onclick="mainUtils.func.contact();">sungkuk5420@gmail.com</a><br>
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </div>
-
-  <div class="content-blocks blog hidex">
-
-    <section class="content">
-      <div class="block-content">
-        <h3 class="block-title">My Blog(サンプル)</h3>
-        <div class="col-md-10 col-md-offset-1">
-          <div class="post">
-            <div class="post-thumbnail">
-              <a class="open-post" href="post-single.html">
-                <img src="images/blog/4.jpg" alt="">
-              </a>
-            </div>
-            <div class="post-title">
-              <a class="open-post" href="post-single.html">
-                <h2>Typography for web</h2>
-              </a>
-              <p class="post-info">
-                <span class="post-author">Posted by John Sparrow</span>
-                <span class="slash"></span>
-                <span class="post-date">Dec 08, 2015</span>
-                <span class="slash"></span>
-                <span class="post-catetory">Food</span>
-              </p>
-            </div>
-            <div class="post-body">
-              <p>Omnium nominati prodesset pri no. Per dolor gloriatur<span class="selected"> persequer</span>is ad,
-                te his aliquip molestie. Veri tantas ad usu, mel ne sonet quaeque assueverit. Enim eruditi euripidis
-                his et, dictas admodum posidonium ei pro. An duo tempor maluisset honestatis. Ne cum invidunt
-                constituto, sanctus accusam an usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi sonet
-                elitr eos in. Est sint magna mucius te, iudico integre gubergren no vis. Assum doming et pro, est ei
-                inermis corpora argumentum. Eos graece sadipscing et, pri dico salutandi consetetur et, explicari
-                voluptatum mei at. Ex cum nisl epicurei, sea in molestie theophrastus, nibh tollit apeirian no vis.
-              </p>
-              <a class="btn open-post" href="post-single.html">Read More</a>
-            </div>
-          </div>
-          <div class="post">
-            <div class="post-thumbnail">
-              <a class="open-post" href="post-single.html">
-                <img src="images/blog/3.jpg" alt="">
-              </a>
-            </div>
-            <div class="post-title">
-              <a class="open-post" href="post-single.html">
-                <h2>Typography for web</h2>
-              </a>
-              <p class="post-info">
-                <span class="post-author">Posted by John Sparrow</span>
-                <span class="slash"></span>
-                <span class="post-date">Dec 08, 2015</span>
-                <span class="slash"></span>
-                <span class="post-catetory">Food</span>
-              </p>
-            </div>
-            <div class="post-body">
-              <p>Omnium nominati prodesset pri no. Per dolor gloriatur<span class="selected"> persequer</span>is ad,
-                te his aliquip molestie. Veri tantas ad usu, mel ne sonet quaeque assueverit. Enim eruditi euripidis
-                his et, dictas admodum posidonium ei pro. An duo tempor maluisset honestatis. Ne cum invidunt
-                constituto, sanctus accusam an usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi sonet
-                elitr eos in. Est sint magna mucius te, iudico integre gubergren no vis. Assum doming et pro, est ei
-                inermis corpora argumentum. Eos graece sadipscing et, pri dico salutandi consetetur et, explicari
-                voluptatum mei at. Ex cum nisl epicurei, sea in molestie theophrastus, nibh tollit apeirian no vis.
-              </p>
-              <a class="btn open-post" href="post-single.html">Read More</a>
-            </div>
-          </div>
-          <div class="post">
-            <div class="post-thumbnail">
-              <a class="open-post" href="post-single.html">
-                <img src="images/blog/2.jpg" alt="">
-              </a>
-            </div>
-            <div class="post-title">
-              <a class="open-post" href="post-single.html">
-                <h2>Typography for web</h2>
-              </a>
-              <p class="post-info">
-                <span class="post-author">Posted by John Sparrow</span>
-                <span class="slash"></span>
-                <span class="post-date">Dec 08, 2015</span>
-                <span class="slash"></span>
-                <span class="post-catetory">Food</span>
-              </p>
-            </div>
-            <div class="post-body">
-              <p>Omnium nominati prodesset pri no. Per dolor gloriatur<span class="selected"> persequer</span>is ad,
-                te his aliquip molestie. Veri tantas ad usu, mel ne sonet quaeque assueverit. Enim eruditi euripidis
-                his et, dictas admodum posidonium ei pro. An duo tempor maluisset honestatis. Ne cum invidunt
-                constituto, sanctus accusam an usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi sonet
-                elitr eos in. Est sint magna mucius te, iudico integre gubergren no vis. Assum doming et pro, est ei
-                inermis corpora argumentum. Eos graece sadipscing et, pri dico salutandi consetetur et, explicari
-                voluptatum mei at. Ex cum nisl epicurei, sea in molestie theophrastus, nibh tollit apeirian no vis.
-              </p>
-              <a class="btn open-post" href="post-single.html">Read More</a>
-            </div>
-          </div>
-          <div class="post">
-            <div class="post-thumbnail">
-              <a class="open-post" href="post-single.html">
-                <img src="images/blog/1.jpg" alt="">
-              </a>
-            </div>
-            <div class="post-title">
-              <a class="open-post" href="post-single.html">
-                <h2>Typography for web</h2>
-              </a>
-              <p class="post-info">
-                <span class="post-author">Posted by John Sparrow</span>
-                <span class="slash"></span>
-                <span class="post-date">Dec 08, 2015</span>
-                <span class="slash"></span>
-                <span class="post-catetory">Food</span>
-              </p>
-            </div>
-            <div class="post-body">
-              <p>Omnium nominati prodesset pri no. Per dolor gloriatur<span class="selected"> persequer</span>is ad,
-                te his aliquip molestie. Veri tantas ad usu, mel ne sonet quaeque assueverit. Enim eruditi euripidis
-                his et, dictas admodum posidonium ei pro. An duo tempor maluisset honestatis. Ne cum invidunt
-                constituto, sanctus accusam an usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi sonet
-                elitr eos in. Est sint magna mucius te, iudico integre gubergren no vis. Assum doming et pro, est ei
-                inermis corpora argumentum. Eos graece sadipscing et, pri dico salutandi consetetur et, explicari
-                voluptatum mei at. Ex cum nisl epicurei, sea in molestie theophrastus, nibh tollit apeirian no vis.
-              </p>
-              <a class="btn open-post" href="post-single.html">Read More</a>
-            </div>
-          </div>
-
-          <div class="text-center">
-            <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">«</span>
-                </a>
-              </li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">»</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="content-blocks contact hidex">
-
-    <section class="content">
-      <div class="block-content">
-        <h3 class="block-title">連絡先</h3>
-        <div class="row">
-
-          <div class="col-md-6">
-            <div class="contact-content ">
-              <div class="contact-icon">
-                <i class="fa fa-map-marker"></i>
-              </div>
-              <div class="contact-details">
-                <h5>住所</h5>
-                <p>大阪府大阪市鶴見区</p>
-              </div>
-            </div>
-            <div class="contact-content ">
-              <div class="contact-icon">
-                <i class="fa fa-phone"></i>
-              </div>
-              <div class="contact-details">
-                <h5>電話番号</h5>
-                <p> +81 - 070-4385-3533</p>
-              </div>
-            </div>
-            <div class="contact-content ">
-              <div class="contact-icon">
-                <i class="fa fa-envelope"></i>
-              </div>
-              <div class="contact-details">
-                <h5>Eメール </h5>
-                <p>sungkuk5420@gmail.com</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6">
-            <!--<form method="POST" action="/mailSend" id="formcontactus" class="">-->
-            <form method="POST" action="" id="formcontactus" class="">
-              <div class="form-group">
-                <input name="name" type="text" class="form-control requiretop" placeholder="* お名前">
-              </div>
-              <div class="form-group">
-                <input name="email" type="email" class="form-control requiretop" placeholder="* 返信先Eメール">
-              </div>
-              <div class="form-group">
-                <textarea rows="6" name="message" class="form-control requiretop" placeholder="* メッセージ"></textarea>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-dark selected">メッセージ送信</button>
-              </div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-
-
-  </div>
-  </section>
-  <div class="modal fade" id="project-modal" style="">
-    <div class="modal-dialog">
-      <div class="modal-content"></div>
+      </section>
     </div>
-    <div class="inline-menu-container">
-      <a id="modal-close" class="close" data-dismiss="modal" onclick="modalScroll.destroy();">
-        <span aria-hidden="true">&times;</span>
-      </a>
-    </div>
-  </div>
 
-  <!-- <script type="text/javascript" src="javascripts/core/jquery-1.12.4.js"></script>
+    <div class="content-blocks blog hidex">
+      <section class="content">
+        <div class="block-content">
+          <h3 class="block-title">My Blog(サンプル)</h3>
+          <div class="col-md-10 col-md-offset-1">
+            <div class="post">
+              <div class="post-thumbnail">
+                <a class="open-post" href="post-single.html">
+                  <img src="images/blog/4.jpg" alt="" />
+                </a>
+              </div>
+              <div class="post-title">
+                <a class="open-post" href="post-single.html">
+                  <h2>Typography for web</h2>
+                </a>
+                <p class="post-info">
+                  <span class="post-author">Posted by John Sparrow</span>
+                  <span class="slash"></span>
+                  <span class="post-date">Dec 08, 2015</span>
+                  <span class="slash"></span>
+                  <span class="post-catetory">Food</span>
+                </p>
+              </div>
+              <div class="post-body">
+                <p>
+                  Omnium nominati prodesset pri no. Per dolor gloriatur<span
+                    class="selected"
+                  >
+                    persequer</span
+                  >is ad, te his aliquip molestie. Veri tantas ad usu, mel ne
+                  sonet quaeque assueverit. Enim eruditi euripidis his et,
+                  dictas admodum posidonium ei pro. An duo tempor maluisset
+                  honestatis. Ne cum invidunt constituto, sanctus accusam an
+                  usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi
+                  sonet elitr eos in. Est sint magna mucius te, iudico integre
+                  gubergren no vis. Assum doming et pro, est ei inermis corpora
+                  argumentum. Eos graece sadipscing et, pri dico salutandi
+                  consetetur et, explicari voluptatum mei at. Ex cum nisl
+                  epicurei, sea in molestie theophrastus, nibh tollit apeirian
+                  no vis.
+                </p>
+                <a class="btn open-post" href="post-single.html">Read More</a>
+              </div>
+            </div>
+            <div class="post">
+              <div class="post-thumbnail">
+                <a class="open-post" href="post-single.html">
+                  <img src="images/blog/3.jpg" alt="" />
+                </a>
+              </div>
+              <div class="post-title">
+                <a class="open-post" href="post-single.html">
+                  <h2>Typography for web</h2>
+                </a>
+                <p class="post-info">
+                  <span class="post-author">Posted by John Sparrow</span>
+                  <span class="slash"></span>
+                  <span class="post-date">Dec 08, 2015</span>
+                  <span class="slash"></span>
+                  <span class="post-catetory">Food</span>
+                </p>
+              </div>
+              <div class="post-body">
+                <p>
+                  Omnium nominati prodesset pri no. Per dolor gloriatur<span
+                    class="selected"
+                  >
+                    persequer</span
+                  >is ad, te his aliquip molestie. Veri tantas ad usu, mel ne
+                  sonet quaeque assueverit. Enim eruditi euripidis his et,
+                  dictas admodum posidonium ei pro. An duo tempor maluisset
+                  honestatis. Ne cum invidunt constituto, sanctus accusam an
+                  usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi
+                  sonet elitr eos in. Est sint magna mucius te, iudico integre
+                  gubergren no vis. Assum doming et pro, est ei inermis corpora
+                  argumentum. Eos graece sadipscing et, pri dico salutandi
+                  consetetur et, explicari voluptatum mei at. Ex cum nisl
+                  epicurei, sea in molestie theophrastus, nibh tollit apeirian
+                  no vis.
+                </p>
+                <a class="btn open-post" href="post-single.html">Read More</a>
+              </div>
+            </div>
+            <div class="post">
+              <div class="post-thumbnail">
+                <a class="open-post" href="post-single.html">
+                  <img src="images/blog/2.jpg" alt="" />
+                </a>
+              </div>
+              <div class="post-title">
+                <a class="open-post" href="post-single.html">
+                  <h2>Typography for web</h2>
+                </a>
+                <p class="post-info">
+                  <span class="post-author">Posted by John Sparrow</span>
+                  <span class="slash"></span>
+                  <span class="post-date">Dec 08, 2015</span>
+                  <span class="slash"></span>
+                  <span class="post-catetory">Food</span>
+                </p>
+              </div>
+              <div class="post-body">
+                <p>
+                  Omnium nominati prodesset pri no. Per dolor gloriatur<span
+                    class="selected"
+                  >
+                    persequer</span
+                  >is ad, te his aliquip molestie. Veri tantas ad usu, mel ne
+                  sonet quaeque assueverit. Enim eruditi euripidis his et,
+                  dictas admodum posidonium ei pro. An duo tempor maluisset
+                  honestatis. Ne cum invidunt constituto, sanctus accusam an
+                  usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi
+                  sonet elitr eos in. Est sint magna mucius te, iudico integre
+                  gubergren no vis. Assum doming et pro, est ei inermis corpora
+                  argumentum. Eos graece sadipscing et, pri dico salutandi
+                  consetetur et, explicari voluptatum mei at. Ex cum nisl
+                  epicurei, sea in molestie theophrastus, nibh tollit apeirian
+                  no vis.
+                </p>
+                <a class="btn open-post" href="post-single.html">Read More</a>
+              </div>
+            </div>
+            <div class="post">
+              <div class="post-thumbnail">
+                <a class="open-post" href="post-single.html">
+                  <img src="images/blog/1.jpg" alt="" />
+                </a>
+              </div>
+              <div class="post-title">
+                <a class="open-post" href="post-single.html">
+                  <h2>Typography for web</h2>
+                </a>
+                <p class="post-info">
+                  <span class="post-author">Posted by John Sparrow</span>
+                  <span class="slash"></span>
+                  <span class="post-date">Dec 08, 2015</span>
+                  <span class="slash"></span>
+                  <span class="post-catetory">Food</span>
+                </p>
+              </div>
+              <div class="post-body">
+                <p>
+                  Omnium nominati prodesset pri no. Per dolor gloriatur<span
+                    class="selected"
+                  >
+                    persequer</span
+                  >is ad, te his aliquip molestie. Veri tantas ad usu, mel ne
+                  sonet quaeque assueverit. Enim eruditi euripidis his et,
+                  dictas admodum posidonium ei pro. An duo tempor maluisset
+                  honestatis. Ne cum invidunt constituto, sanctus accusam an
+                  usu, ea mandamus incorrupte mel. Pro cu purto graeco. Wisi
+                  sonet elitr eos in. Est sint magna mucius te, iudico integre
+                  gubergren no vis. Assum doming et pro, est ei inermis corpora
+                  argumentum. Eos graece sadipscing et, pri dico salutandi
+                  consetetur et, explicari voluptatum mei at. Ex cum nisl
+                  epicurei, sea in molestie theophrastus, nibh tollit apeirian
+                  no vis.
+                </p>
+                <a class="btn open-post" href="post-single.html">Read More</a>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                  </a>
+                </li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="content-blocks contact hidex">
+      <section class="content">
+        <div class="block-content">
+          <h3 class="block-title">連絡先</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="contact-content ">
+                <div class="contact-icon">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>住所</h5>
+                  <p>大阪府大阪市鶴見区</p>
+                </div>
+              </div>
+              <div class="contact-content ">
+                <div class="contact-icon">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>電話番号</h5>
+                  <p>+81 - 070-4385-3533</p>
+                </div>
+              </div>
+              <div class="contact-content ">
+                <div class="contact-icon">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h5>Eメール</h5>
+                  <p>sungkuk5420@gmail.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <!--<form method="POST" action="/mailSend" id="formcontactus" class="">-->
+              <form method="POST" action="" id="formcontactus" class="">
+                <div class="form-group">
+                  <input
+                    name="name"
+                    type="text"
+                    class="form-control requiretop"
+                    placeholder="* お名前"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    name="email"
+                    type="email"
+                    class="form-control requiretop"
+                    placeholder="* 返信先Eメール"
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    rows="6"
+                    name="message"
+                    class="form-control requiretop"
+                    placeholder="* メッセージ"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-dark selected">
+                    メッセージ送信
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="modal fade" id="project-modal" style="">
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+      <div class="inline-menu-container">
+        <a
+          id="modal-close"
+          class="close"
+          data-dismiss="modal"
+          onclick="modalScroll.destroy();"
+        >
+          <span aria-hidden="true">&times;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- <script type="text/javascript" src="javascripts/core/jquery-1.12.4.js"></script>
   <script type="text/javascript" src="javascripts/core/bootstrap.min.js"></script>
   <script type="text/javascript" src="javascripts/core/jquery.isotope.min.js"></script>
   <script type="text/javascript" src="javascripts/core/jquery.placeholder.min.js"></script>
@@ -854,59 +870,57 @@
   <script type="text/javascript" src="http://13.125.125.39:4000/javascripts/translate.js"></script>
   <script type="text/javascript" src="javascripts/userScript.js"></script> -->
 
+    <script type="text/javascript" src="dist/js/script.js"></script>
+    <!-- <script type="text/javascript" src="http://13.125.246.215:4000/javascripts/translate.min.js"></script> -->
 
-  <script type="text/javascript" src="dist/js/script.js"></script>
-  <!-- <script type="text/javascript" src="http://13.125.246.215:4000/javascripts/translate.min.js"></script> -->
-
-  <script>
-    function detectMobile() {
-      if (navigator.userAgent.match(/Android/i) ||
-        navigator.userAgent.match(/webOS/i) ||
-        navigator.userAgent.match(/iPhone/i) ||
-        navigator.userAgent.match(/iPad/i) ||
-        navigator.userAgent.match(/iPod/i) ||
-        navigator.userAgent.match(/BlackBerry/i) ||
-        navigator.userAgent.match(/Windows Phone/i)
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    $("document").ready(function () {
-      //translateInit();
-      if (!detectMobile()) {
-        $('#project-modal').css('overflow-y', 'scroll');
-        $('#post-modal').css('overflow-y', 'scroll');
-        $('.content-blocks').css('overflow-y', 'scroll');
-      } else {
-        new IScroll('.content-blocks.about', {
-          scrollbars: true,
-          mouseWheel: true
-        });
-        new IScroll('.content-blocks.portfolio', {
-          scrollbars: true,
-          mouseWheel: true
-        });
-        new IScroll('.content-blocks.blog', {
-          scrollbars: true,
-          mouseWheel: true
-        });
-        new IScroll('.content-blocks.contact', {
-          scrollbars: true,
-          mouseWheel: true
-        });
-        new IScroll('.modal', {
-          scrollbars: true,
-          mouseWheel: true
-        });
+    <script>
+      function detectMobile() {
+        if (
+          navigator.userAgent.match(/Android/i) ||
+          navigator.userAgent.match(/webOS/i) ||
+          navigator.userAgent.match(/iPhone/i) ||
+          navigator.userAgent.match(/iPad/i) ||
+          navigator.userAgent.match(/iPod/i) ||
+          navigator.userAgent.match(/BlackBerry/i) ||
+          navigator.userAgent.match(/Windows Phone/i)
+        ) {
+          return true;
+        } else {
+          return false;
+        }
       }
 
-      $('#langForm').submit();
-    });
-  </script>
+      $("document").ready(function() {
+        //translateInit();
+        if (!detectMobile()) {
+          $("#project-modal").css("overflow-y", "scroll");
+          $("#post-modal").css("overflow-y", "scroll");
+          $(".content-blocks").css("overflow-y", "scroll");
+        } else {
+          new IScroll(".content-blocks.about", {
+            scrollbars: true,
+            mouseWheel: true
+          });
+          new IScroll(".content-blocks.portfolio", {
+            scrollbars: true,
+            mouseWheel: true
+          });
+          new IScroll(".content-blocks.blog", {
+            scrollbars: true,
+            mouseWheel: true
+          });
+          new IScroll(".content-blocks.contact", {
+            scrollbars: true,
+            mouseWheel: true
+          });
+          new IScroll(".modal", {
+            scrollbars: true,
+            mouseWheel: true
+          });
+        }
 
-</body>
-
+        $("#langForm").submit();
+      });
+    </script>
+  </body>
 </html>
