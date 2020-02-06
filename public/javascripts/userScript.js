@@ -69,16 +69,16 @@ $(".open-post").on("click", function() {
 });
 
 //On Click Open Menu Items
-const menuClick = function() {
+function menuClick() {
   $(".name-block").addClass("reverse");
   $(".name-block-container").addClass("reverse");
   $(".menu-blocks").addClass("hidex");
   $(".inline-menu-container").removeClass("hidex");
   $(".inline-menu-container").addClass("showx");
-};
+}
 
 //On Click Open About/Resume Block
-const about = function() {
+function about() {
   menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
@@ -86,9 +86,9 @@ const about = function() {
   $(".content-blocks.about").addClass("showx");
   $(".menu-item").removeClass("active");
   $(".menu-item.about").addClass("active");
-};
+}
 //On Click Open Portfolio Block
-const portfolio = function() {
+function portfolio() {
   menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
@@ -96,9 +96,9 @@ const portfolio = function() {
   $(".content-blocks.portfolio").addClass("showx");
   $(".menu-item").removeClass("active");
   $(".menu-item.portfolio").addClass("active");
-};
+}
 //On Click Open Blog Block
-const blog = function() {
+function blog() {
   menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
@@ -106,9 +106,9 @@ const blog = function() {
   $(".content-blocks.blog").addClass("showx");
   $(".menu-item").removeClass("active");
   $(".menu-item.blog").addClass("active");
-};
+}
 //On Click Open Contact Block
-const contact = function() {
+function contact() {
   menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
@@ -116,10 +116,10 @@ const contact = function() {
   $(".content-blocks.contact").addClass("showx");
   $(".menu-item").removeClass("active");
   $(".menu-item.contact").addClass("active");
-};
+}
 
 //On Click Close Blocks
-const close = function() {
+function close() {
   $(".name-block").removeClass("reverse");
   $(".name-block-container").removeClass("reverse");
   $(".menu-blocks").removeClass("hidex");
@@ -128,7 +128,7 @@ const close = function() {
   $(".inline-menu-container").removeClass("showx");
   $(".inline-menu-container").addClass("hidex");
   $(".menu-item").removeClass("active");
-};
+}
 
 //Placeholder
 $("input,textarea").on("focus", function() {

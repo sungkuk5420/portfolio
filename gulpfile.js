@@ -72,9 +72,9 @@ gulp.task("combine-js", function() {
       "public/javascripts/core/bootstrap.min.js",
       "public/javascripts/core/jquery.isotope.min.js",
       "public/javascripts/core/jquery.placeholder.min.js",
-      "public/javascripts/core/contact_me.js",
       "public/javascripts/core/smooth-scroll.js",
       "public/javascripts/core/iscroll.js",
+      "public/javascripts/contact_me.js",
       "public/javascripts/userScript.js"
     ])
     .pipe(stripDebug())

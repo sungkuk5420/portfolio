@@ -1,13 +1,16 @@
 var express = require("express");
 var router = express.Router();
-// var nodemailer = require('nodemailer');
+var nodemailer = require("nodemailer");
+var dotenv = require("dotenv");
+dotenv.config();
+
 /* GET home page. */
 router.get("/", function(req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("index", { title: "`KIM SUNGKUK`" });
 });
 
 router.get("/colorfulTees", function(req, res, next) {
-  res.render("colorfulTees", { title: "Express" });
+  res.render("colorfulTees", { title: "colorfulTees" });
 });
 
 router.post("/language", function(req, res, next) {
@@ -16,57 +19,38 @@ router.post("/language", function(req, res, next) {
     console.log(data);
   });
 });
-// router.post('/mailSend',function(req, res, next) {
-//   var name = req.query.name;
-//   var data = {
-//     name: name,
-//     email : req.query.email,
-//     title: req.query.title,
-//     message: req.query.message
-//   };
-//
-//   var bodyKeys = Object.keys(req.body);
-//   for (var i = 0; i < bodyKeys.length; i++) {
-//     var key = bodyKeys[i];
-//     data[key] = req.body[key];
-//   }
-//
-//   var smtpTransport = nodemailer.createTransport("SMTP", {
-//     service: 'Gmail',
-//     auth: {
-//       user: 'sungkukEmailClient@gmail.com',
-//       pass: 'as123555'
-//     }
-//   });
-//   //var mailOptions = {
-//   //  from: '송성광 <saltfactory@gmail.com>',
-//   //  to: 'sungkuk5420@gmail.com',
-//   //  text: '테스트 메일',
-//   //  subject: '임마!!',
-//   //};
-//   var email = data.email;
-//   var mailOptions = {
-//     from: data.name+'　 <saltfactory@gmail.com>',
-//     to: 'sungkuk5420@gmail.com',
-//     text: data.message,
-//     subject: data.name+ '(' + email + ')님이 보내신 메일',
-//   };
-//   smtpTransport.sendMail(mailOptions, function (error, response) {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log("Message sent : " + response.message);
-//     }
-//     smtpTransport.close();
-//     res.end();
-//   });
-//
-//   console.log(data);
-//   console.log(data.email);
-// });
+router.post("/mailSend", async function(req, res, next) {
+  const {
+    body: { email, name, content }
+  } = req;
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_ID, // generated ethereal user
+      pass: process.env.EMAIL_PASSWORD // generated ethereal password
+    }
+  });
+  console.log("mailSend start");
+  try {
+    let sendData = await transporter.sendMail({
+      from: email, // sender address
+      to: "sungkuk5420@gmail.com", // list of receivers
+      subject: "<" + name + ">님이 포트폴리오에서 보낸 이메일 (" + email + ")", // Subject line
+      text: content,
+      html: content
+    });
+    res.json({
+      message: "Mail Send Success"
+    });
+    res.end();
+  } catch (error) {
+    next("Mail Send Fail Error Message is : " + error);
+  }
+});
 
 router.get("/luxuryWatch", function(req, res, next) {
-  res.render("luxuryWatch", { title: "Express" });
+  res.render("luxuryWatch", { title: "luxuryWatch" });
 });
 
 // 네이버 Papago NMT API 예제

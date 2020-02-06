@@ -38,32 +38,24 @@
         <li
           data-langtext
           class="about menu-item"
-          onclick="mainUtils.func.about(); ga('send', 'event', 'portfolio','click','resumePage');"
+          onclick="about(); ga('send', 'event', 'portfolio','click','resumePage');"
         >
           履歴書
         </li>
         <li
           data-langtext
           class="portfolio menu-item"
-          onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
+          onclick="portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
         >
           ポートフォリオ
         </li>
-        <li
-          data-langtext
-          class="blog menu-item"
-          onclick="mainUtils.func.blog();"
-        >
+        <li data-langtext class="blog menu-item" onclick="blog();">
           ブログ
         </li>
-        <li
-          data-langtext
-          class="contact menu-item"
-          onclick="mainUtils.func.contact();"
-        >
+        <li data-langtext class="contact menu-item" onclick="contact();">
           連絡先
         </li>
-        <li id="close" onclick="mainUtils.func.close();">×</li>
+        <li id="close" onclick="close();">×</li>
       </ul>
     </div>
 
@@ -108,7 +100,7 @@
               <h2
                 data-langtext
                 class="about menu-item"
-                onclick="mainUtils.func.about(); ga('send', 'event', 'portfolio','click','resumePage');"
+                onclick="about(); ga('send', 'event', 'portfolio','click','resumePage');"
               >
                 履歴書
               </h2>
@@ -119,7 +111,7 @@
               <h2
                 data-langtext
                 class="portfolio menu-item"
-                onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
+                onclick="portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
               >
                 ポートフォリオ
               </h2>
@@ -127,22 +119,14 @@
           </div>
           <div class="blog-block">
             <div class="blog-block-container">
-              <h2
-                data-langtext
-                class="blog menu-item"
-                onclick="mainUtils.func.blog();"
-              >
+              <h2 data-langtext class="blog menu-item" onclick="blog();">
                 ブログ
               </h2>
             </div>
           </div>
           <div class="contact-block">
             <div class="contact-block-container">
-              <h2
-                data-langtext
-                class="contact menu-item"
-                onclick="mainUtils.func.contact();"
-              >
+              <h2 data-langtext class="contact menu-item" onclick="contact();">
                 連絡先
               </h2>
             </div>
@@ -269,7 +253,7 @@
                       <a
                         class="btn lowercase"
                         href="#"
-                        onclick="mainUtils.func.portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
+                        onclick="portfolio(); ga('send', 'event', 'portfolio','click','portfolioPage');"
                         data-langtext
                         >詳細</a
                       ><br />
@@ -443,10 +427,7 @@
 
             <div class="row text-center">
               <div class="col-md-12 btn-email">
-                <a
-                  class="btn lowercase"
-                  href="#"
-                  onclick="mainUtils.func.contact();"
+                <a class="btn lowercase" href="#" onclick="contact();"
                   >sungkuk5420@gmail.com</a
                 ><br />
                 <!-- <small data-langtext>언제라도 연락주세요.</small> -->
@@ -576,7 +557,7 @@
           <div class="row text-center">
             <div class="col-md-12">
               <h4>Interested in working together?</h4>
-              <a class="btn lowercase" onclick="mainUtils.func.contact();"
+              <a class="btn lowercase" onclick="contact();"
                 >sungkuk5420@gmail.com</a
               ><br />
             </div>
@@ -806,8 +787,12 @@
               </div>
             </div>
             <div class="col-md-6">
-              <!--<form method="POST" action="/mailSend" id="formcontactus" class="">-->
-              <form method="POST" action="" id="formcontactus" class="">
+              <form
+                method="POST"
+                action="/mailSend"
+                id="formcontactus"
+                class=""
+              >
                 <div class="form-group">
                   <input
                     name="name"
@@ -827,7 +812,7 @@
                 <div class="form-group">
                   <textarea
                     rows="6"
-                    name="message"
+                    name="content"
                     class="form-control requiretop"
                     placeholder="* メッセージ"
                   ></textarea>
