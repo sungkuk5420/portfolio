@@ -79,7 +79,6 @@ function menuClick() {
 
 //On Click Open About/Resume Block
 function about() {
-  updateProjectCount();
   menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
@@ -148,3 +147,51 @@ function updateProjectCount() {
     .removeClass("hide")
     .text($("#projectList .exp").length + "個");
 }
+
+function detectMobile() {
+  if (
+    navigator.userAgent.match(/Android/i) ||
+    navigator.userAgent.match(/webOS/i) ||
+    navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/iPod/i) ||
+    navigator.userAgent.match(/BlackBerry/i) ||
+    navigator.userAgent.match(/Windows Phone/i)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+$("document").ready(function() {
+  updateProjectCount();
+  if (detectMobile()) {
+    $("#project-modal").css("overflow-y", "scroll");
+    $("#post-modal").css("overflow-y", "scroll");
+    $(".content-blocks").css("overflow-y", "scroll");
+  } else {
+    new IScroll(".content-blocks.about", {
+      scrollbars: true,
+      mouseWheel: true
+    });
+    new IScroll(".content-blocks.portfolio", {
+      scrollbars: true,
+      mouseWheel: true
+    });
+    new IScroll(".content-blocks.blog", {
+      scrollbars: true,
+      mouseWheel: true
+    });
+    new IScroll(".content-blocks.contact", {
+      scrollbars: true,
+      mouseWheel: true
+    });
+    new IScroll(".modal", {
+      scrollbars: true,
+      mouseWheel: true
+    });
+  }
+
+  $("#langForm").submit();
+});
