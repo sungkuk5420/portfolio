@@ -79,6 +79,7 @@ function menuClick() {
 
 //On Click Open About/Resume Block
 function about() {
+  updateProjectCount();
   menuClick();
   $(".content-blocks").removeClass("showx");
   $(".content-blocks").addClass("hidex");
@@ -140,3 +141,10 @@ $("input,textarea").blur(function() {
 });
 
 $("input, textarea").placeholder();
+
+function updateProjectCount() {
+  console.log(updateProjectCount);
+  $(".project-count")
+    .removeClass("hide")
+    .text($("#projectList .exp").length + "個");
+}
