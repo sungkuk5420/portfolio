@@ -119,7 +119,7 @@ function contact() {
 }
 
 //On Click Close Blocks
-function close() {
+function closeMenus() {
   $(".name-block").removeClass("reverse");
   $(".name-block-container").removeClass("reverse");
   $(".menu-blocks").removeClass("hidex");
