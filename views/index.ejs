@@ -81,12 +81,12 @@
                 ></a>
               </li>
               <li>
-                <a href="#" onclick="textTranslate({resultLang : 'ko' });"
+                <a href="#" onclick="textTranslateAll('ko');"
                   ><img class="flag flag-kr"
                 /></a>
               </li>
               <li>
-                <a href="#" onclick="textTranslate({resultLang : 'ja' });"
+                <a href="#" onclick="textTranslateAll('ja');"
                   ><img class="flag flag-jp"
                 /></a>
               </li>
@@ -1023,6 +1023,9 @@
       </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+    <script type="text/javascript" src="/javascripts/translate.js"></script>
     <script type="text/javascript" src="dist/js/script.js"></script>
   </body>
 </html>
