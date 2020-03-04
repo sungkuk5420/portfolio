@@ -26,9 +26,7 @@ firebase.initializeApp(firebaseConfig);
 //     checkKey : true,
 //     autoKey : true
 // });
-translateInit(() => {
-  console.log(DBData);
-});
+translateInit(() => {});
 function translateInit(cb) {
   getDataBase().then(
     function(DBData) {
@@ -81,8 +79,8 @@ async function textTranslateAll(resultLang) {
       }
     });
   });
-  console.log(textArr);
 }
+window.getTextData = getTextData;
 function textTranslate({
   sendText = "",
   sendLang = BASELANG,
@@ -93,7 +91,6 @@ function textTranslate({
 }) {
   var promiseFunc = function(sendText) {
     return new Promise(function(resolve, reject) {
-      console.log(sendText);
       var translateTextObj = getTextData(sendText, resultLang).data;
 
       var bl = canTranslateApi(translateTextObj, resultLang);
@@ -104,12 +101,12 @@ function textTranslate({
           pushDatabase(translateCB(data, sendLang, checkKey, autoKey));
         });
       } else {
-        console.log(
-          "이미 단어가 있습니다 : koText : " +
-            translateTextObj.data.ko +
-            " jaText :" +
-            translateTextObj.data.ja
-        );
+        // console.log(
+        //   "이미 단어가 있습니다 : koText : " +
+        //     translateTextObj.data.ko +
+        //     " jaText :" +
+        //     translateTextObj.data.ja
+        // );
         resolve(translateTextObj.data);
       }
     });
@@ -144,70 +141,43 @@ function canTranslateApi(translateTextObj, resultLang) {
 
 function getTextData(sendText, resultLang) {
   var textData = [];
-  var findLang = "";
   // console.log(DBData);
-  if (resultLang == "ko") {
+  if (resultLang == "ja") {
     textData = DBData.filter(function(item) {
-      return item.data.ja === sendText;
+      return (
+        $.trim(item.data.ko) === $.trim(sendText) ||
+        $.trim(item.data.ja) === $.trim(sendText)
+      );
     });
-    findLang = "ja";
-  } else if (resultLang == "ja") {
+  } else if (resultLang == "ko") {
     textData = DBData.filter(function(item) {
-      return item.data.ko === sendText;
+      return (
+        $.trim(item.data.ja) === $.trim(sendText) ||
+        $.trim(item.data.ko) === $.trim(sendText)
+      );
     });
-    findLang = "ko";
   }
+
   if (textData.length !== 0) {
+    if (
+      (resultLang == "ko" && textData[0].data.ko === "") ||
+      (resultLang == "ja" && textData[0].data.ja === "")
+    ) {
+      textData = [];
+    }
+  }
+
+  if (textData.length >= 1) {
+    if (textData.length !== 1) {
+      console.log("중복저장된 항목", textData[0]);
+    }
     return {
-      data: textData[0],
-      lang: findLang
+      data: textData[0]
     };
   } else {
-    textData = DBData.filter(function(item) {
-      var itemText =
-        item.data.sendText !== undefined
-          ? $.trim(item.data.sendText)
-          : undefined;
-      return itemText === sendText;
-    });
-    findLang = "sendText";
-
-    if (resultLang == "ko") {
-      textData = DBData.filter(function(item) {
-        var itemText =
-          item.data.ko !== undefined ? $.trim(item.data.ko) : undefined;
-        return itemText === sendText;
-      });
-      findLang = "ko";
-    } else if (resultLang == "ja") {
-      textData = DBData.filter(function(item) {
-        var itemText =
-          item.data.ja !== undefined ? $.trim(item.data.ja) : undefined;
-        return itemText === sendText;
-      });
-      findLang = "ja";
-    }
-
-    if (textData.length !== 0) {
-      if (
-        (resultLang == "ko" && textData[0].data.ko === "") ||
-        (resultLang == "ja" && textData[0].data.ja === "")
-      ) {
-        textData = [];
-      }
-    }
-
-    if (textData.length === 1) {
-      return {
-        data: textData[0],
-        lang: findLang
-      };
-    } else {
-      return {
-        data: "",
-        lang: ""
-      };
-    }
+    return {
+      data: ""
+    };
   }
 }
 
@@ -273,7 +243,6 @@ function addClickCss() {
     $(this).addClass("changeTextObj");
     var data = getTextData($.trim($(this).text()), BASELANG);
 
-    console.log(data);
     if (data.data === "" && data.lang === "") {
       alert("DB에 데이터가 없습니다.");
     } else {
