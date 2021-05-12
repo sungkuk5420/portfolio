@@ -41,7 +41,7 @@
     "gulp-uglify": "^3.0.0",
     "my-global": "^2.0.9",
     "my-reporter": "^1.0.1",
-    "nodemailer": "^4.0.1",
+    "nodemailer": "^6.4.16",
     "strip-debug": "^1.1.1"
   },
   "author": "",
